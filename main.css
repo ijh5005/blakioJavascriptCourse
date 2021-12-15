@@ -1,0 +1,793 @@
+:root {
+    --textWhite: #FFF;
+    --offWhite: #e7e7e7;
+    --lightRed: #F34338;
+    --lightGrey: #919191;
+    --font: 'Readex Pro', sans-serif;
+    --blackbg: url(./assets/bg.png);
+    --me: url(./assets/me.jpg);
+    --grey: #1E1E1E;
+    --blue: url(./assets/bluebg.png);
+    --blueBG: url(./assets/blue.png);
+    --greyBG: url(./assets/grey.png);
+    --black: #000;
+    --panelBorderGrey: #141414;
+    --panelBorderBlue: #000418;
+}
+
+
+
+body {
+    height: 100vh;
+    font-family: var(--font);
+    color: var(--textWhite);
+    display: flex;
+    overflow: hidden;
+    /* background-color: var(--black); */
+}
+
+#aboutContainer {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#greeting {
+    font-size: 20em;
+}
+
+#about {
+    font-size: 2em;
+    width: 20em;
+    max-width: 90%;
+    color: var(--offWhite);
+    text-align: justify;
+}
+
+#myPic {
+    background-image: var(--me);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0.1;
+    width: 50%;
+    background-size: cover;
+}
+
+#bkgr {
+    height: 100vh;
+    width: 500vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2; 
+    background-image: var(--blackbg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#name {
+    color: var(--lightRed);
+    font-weight: bold;
+}
+
+#dashboard {
+    overflow-y: scroll;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    right: 0;
+    width: 24em;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.panelSm {
+    float: left;
+    height: 11rem;
+    width: 11rem;
+    background-color: #FFF;
+    margin: 0.5em;
+    border-radius: 1.2em;
+    overflow: hidden;
+}
+
+.panelMd {
+    float: left;
+    height: 11rem;
+    width: 23rem;
+    background-color: #FFF;
+    margin: 4px;
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
+.panelLarge {
+    float: left;
+    height: 23rem;
+    width: 23rem;
+    background-color: #FFF;
+    margin: 0.5em;
+    border-radius: 1.2em;
+    overflow: hidden;
+}
+
+.grey {
+    background-color: var(--grey);
+    /* border: 1px solid var(--panelBorderGrey); */
+
+    /* background-image: var(--greyBG);
+    background-size: cover;
+    background-color: transparent; */
+}
+
+.blue {
+    background: rgb(3,11,33);
+    background: linear-gradient(180deg, rgba(3,11,33,1) 0%, rgba(30,36,42,1) 48%, rgba(47,53,68,1) 100%);
+    /* border: 1px solid var(--panelBorderBlue); */
+
+    /* background-image: var(--blueBG);
+    background-size: cover;
+    background-color: transparent; */
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.alignStart {
+    align-items: flex-start;
+}
+
+.alignEnd {
+    align-items: flex-end;
+}
+
+.justifyStart {
+    justify-content: flex-start;
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+}
+
+.fullSize {
+    height: 100%;
+    width: 100%;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.sizeWithHeader {
+    height: 86%;
+    width: 100%;
+}
+
+.topBottomHalf {
+    height: 50%;
+    width: 100%;
+}
+
+.rightLeftHalf {
+    height: 100%;
+    width: 50%;
+}
+
+.half70 {
+    width: 70%;
+    height: 100%;
+}
+
+.half30 {
+    width: 30%;
+    height: 100%;
+}
+
+.fontSmSize {
+    font-size: 12px;
+}
+
+.fontMidSize {
+    font-size: 31px;
+}
+
+.panelTitle {
+    height: 30%;
+    width: 100%;
+}
+
+.panelBody {
+    height: 70%;
+    width: 100%;
+}
+
+.margin {
+    margin: 14px;
+}
+
+.sideMargin {
+    margin: 0 14px;
+}
+
+.topBottomMargin {
+    margin: 14px 0;
+}
+
+.redText {
+    color: var(--lightRed);
+}
+
+.greyText {
+    color: var(--lightGrey);
+}
+
+.btn {
+    background-color: var(--black);
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    margin: 5px 0;
+}
+
+.btn:hover {
+    opacity: 0.6;
+}
+
+.btn:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.panelHeader {
+    margin-left: 16px;
+    margin-top: 16px;
+    font-weight: 800;
+    color: var(--lightRed);
+}
+
+.upperCase {
+    text-transform: uppercase;
+}
+
+.line {
+    height: 1px;
+    width: 90%;
+    background-color: var(--lightGrey);
+    opacity: 0.2;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  .displayNone {
+      display: none;
+  }
+
+/* ------------------------------------------------------------------- */
+/* video player */
+
+#vidoePlayer {
+    position: relative;
+}
+
+#myVideo {
+    width: 100%;
+}
+
+#videoOverLay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 28px;
+    font-weight: 100;
+}
+
+/* ------------------------------------------------------------------- */
+/* password generator */
+
+#passwordGeneratorApp {
+    align-items: flex-start;
+    padding: 12px;
+}
+
+#passwordImg {
+    width: 330px;
+    height: 83px;
+    margin: 8px;
+    opacity: 0.4;
+    background-size: contain;
+    background-image: url(./assets/password.png);
+}
+
+#passwordBtn,
+#generatePasswordBtn {
+    width: 87%;
+}
+
+.pwOptions {
+    margin: 3px;
+    font-size: 14px;
+}
+
+/* ------------------------------------------------------------------- */
+/* daily affirmation */
+/* #dailyMemo {} */
+
+/* #dailyMemoDay {} */
+
+#dailyInspirationalQuote {
+    color: var(--lightGrey);
+    overflow-y: scroll;
+    height: 100%;
+}
+
+/* ------------------------------------------------------------------- */
+/* memory game */
+
+#memoryTitle {
+    color: var(--lightGrey);
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+#memoryGameBoard {
+    display: none;
+}
+
+#memoryGameTopLeft {
+    border-right: 1px solid var(--panelBorderBlue);
+    border-bottom: 1px solid var(--panelBorderBlue);
+}
+
+#memoryGameBottomRight {
+    border-left: 1px solid var(--panelBorderBlue);
+    border-top: 1px solid var(--panelBorderBlue);
+}
+
+#memoryStartBtn {
+    margin-right: 16px;
+}
+
+#memoryStartBtn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#memoryCount {
+    position: absolute;
+    font-size: 2em;
+}
+
+.memoryHighlight {
+    background-color: rgb(0 247 190 / 60%);
+}
+
+.memorySquare:hover {
+    background-color: rgb(0 247 190 / 60%);
+}
+
+.memorySquare:active {
+    background-color: rgb(0 247 190 / 20%);
+}
+
+/* ------------------------------------------------------------------- */
+/* tiktactoe */
+
+#tikTacToeBoard {
+    display: none;
+}
+
+#topRow,
+#middleRow,
+#bottomRow {
+    height: 33%;
+    width: 100%;
+}
+
+#topRow,
+#middleRow {
+    border-bottom: 1px solid var(--panelBorderBlue);
+}
+
+#tikTacToeBoard > #topRow > div,
+#tikTacToeBoard > #middleRow > div,
+#tikTacToeBoard > #bottomRow > div {
+    height: 100%;
+    width: 33%;
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+}
+
+.topOne,
+.topTwo,
+.middleOne,
+.middleTwo,
+.bottomOne,
+.bottomTwo {
+    border-right: 1px solid var(--panelBorderBlue);
+}
+
+.tictactoe.topOne {
+    background-image: url(./assets/x.png);
+}
+
+.tictactoe.topTwo {
+    background-image: url(./assets/o.png);
+}
+
+/* ------------------------------------------------------------------- */
+/* wacamoe */
+
+#wacamoleBoard > #topRow > div,
+#wacamoleBoard > #middleRow > div,
+#wacamoleBoard > #bottomRow > div {
+    height: 100%;
+    width: 33%;
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
+
+#wacamoleBoard {
+    display: none;
+    cursor: url(./assets/mallet.cur), grab;
+}
+
+.wacamole.middleTwo {
+    background-image: url(./assets/mole.png);
+}
+
+/* ------------------------------------------------------------------- */
+/* game settings */
+
+#gameSettings {
+    margin-left: 12px;
+}
+
+#statsImg {
+    width: 112px;
+    height: 100px;
+    background-position: center center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-image: url(./assets/stats.png);
+}
+
+/* ------------------------------------------------------------------- */
+/* tip calculator */
+
+#clock {
+    color: #6ac1ff;
+    font-size: 41px;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+/* ------------------------------------------------------------------- */
+/* meditation app */
+
+#meditationApp {
+    background-image: url(./assets/meditation.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: center;
+}
+
+#meditationApp:active {
+    opacity: 0.4;
+}
+
+#meditationStart {
+    font-weight: 900;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 3px;
+    z-index: 1;
+}
+
+#meditationDirections {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: var(--black);
+    padding: 12px;
+    height: 154px;
+    width: 154px;
+    text-align: center;
+}
+
+#breatheIn,
+#breatheOut {
+    position: absolute;
+    top: 60px;
+    z-index: 0;
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#breatheIn {
+    background-image: url(./assets/inhale.png);
+}
+
+#breatheOut {
+    background-image: url(./assets/exhale.png);
+}
+
+/* ------------------------------------------------------------------- */
+/* tip calculator */
+
+#tipCalculator > div > div > .tipInput {
+    width: 90px;
+    margin: 3px;
+    padding: 6px;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* news feed */
+
+#newsStoryText {
+    margin-left: 16px;
+}
+
+#storyOneImage {
+    height: 6em;
+    border-radius: 14px;
+    margin: 0px 12px;
+    background-size: cover;
+    background-image: url(https://vancouver.citynews.ca/wp-content/blogs.dir/sites/9/2019/06/11/iStock-817616438-1024x683.jpg);
+}
+
+#storyTwoImage {
+    height: 6em;
+    border-radius: 14px;
+    margin: 0px 12px;
+    background-size: cover;
+    background-image: url();
+}
+
+.newArticle:active {
+    opacity: 0.4;
+}
+
+.newsSource {
+    color: var(--lightGrey);
+    font-weight: 800;
+}
+
+.newsTitle {
+    font-weight: 100;
+}
+
+/* ------------------------------------------------------------------- */
+/* breaking bad quotes */
+
+#breakingBadApp {
+    position: relative;
+}
+
+#breakingBadImg {
+    background-image: url(./assets/breakingBad.jpg);
+    background-size: cover;
+    background-position: 55px -56px;
+}
+
+#quote {
+    position: absolute;
+    top: 3px;
+    left: 11px;
+    height: 166px;
+    width: 213px;
+    background-image: url(./assets/quote.png);
+    background-size: cover;
+    background-position: center center;
+    overflow-y: scroll;
+}
+
+#quoteTextContainer {
+    height: 57%;
+    width: 84%;
+    position: relative;
+    top: 24px;
+    left: 16px;
+    font-size: 12px;
+}
+
+#quoteTextContainer:active {
+    opacity: 0.2;
+}
+
+#breakingBadAuthor {
+    color: #002d00;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+#breakBadClick {
+    font-weight: 900;
+    position: absolute;
+    top: 109px;
+    left: 33px;
+}
+
+/* ------------------------------------------------------------------- */
+/* Color Psychology */
+
+#colorPsychology {
+    padding: 2px;
+    flex-wrap: wrap;
+    overflow: scroll;
+    background-image: url(./assets/colorsbg.png);
+    background-size: cover;
+}
+
+#colorPsychology .btn {
+    margin: 2px;
+}
+
+#colorPsychology .btn:hover {
+    opacity: 0.6;
+}
+
+.cpRed {
+    background-color: #E91D2B;
+}
+
+.cpOrange {
+    background-color: #F4891E;
+}
+
+.cpYellow {
+    background-color: #E9CF2A;
+}
+
+.cpGreen {
+    background-color: #0CA450;
+}
+
+.cpBlue {
+    background-color: #44A0E3;
+}
+
+.cpPink {
+    background-color: #D80A91;
+}
+
+.cpPurple {
+    background-color: #693698;
+}
+
+.cpBrown {
+    background-color: #6C330D;
+}
+
+.cpBlack {
+    background-color: #101114;
+}
+
+.cpWhite {
+    background-color: #FFFFFF;
+    color: #101114;
+}
+
+/* ------------------------------------------------------------------- */
+/* pokedex */
+
+#pokedexApp {
+    background-image: url(./assets/pokedex.png);
+    background-size: cover;
+    position: relative;
+    font-family: 'Inconsolata', monospace;
+}
+
+#pokemonSearch {
+    width: 200px;
+    position: relative;
+    top: 19px;
+    left: 107px;
+}
+
+#pokemonInfo {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    height: 63%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#pokemonStats {
+    height: 71px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.statRow {
+    margin: 0 8px;
+}
+
+#pokemon {
+    position: relative;
+    top: 30px;
+    height: 154px;
+    width: 154px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(./assets/egg.png);
+}
+
+/* ------------------------------------------------------------------- */
+/* random jokes */
+
+#jokeApp {
+    background-image: url(./assets/laugh.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: flex-start;
+    padding-top: 12px;
+    padding-left: 12px;
+}
+
+#jokeApp:active {
+    opacity: 0.2;
+}
+
+#joke {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#jokeClick {
+    font-weight: 900;
+}

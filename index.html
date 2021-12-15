@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./reset.css">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="aboutContainer">
+        <p id="greeting">Hi</p>
+        <p id="about">My name is <span id="name">Isaiah</span> and I'm a Software Engineer. I have 6 years of experience
+            in the industry and have been tutoring for 11 years. By the end of this course, I would have helped you
+            master JavaScript.</p>
+    </div>
+
+    <div id="myPic"></div>
+
+    <div id="bkgr"></div>
+
+    <div id="dashboard">
+
+        <!-- video player -->
+        <div class="panelMd grey">
+            <div id="vidoePlayer" class="fullSize">
+                <video autoplay muted loop id="myVideo">
+                    <source src="./assets/Ink - 67358.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div id="videoOverLay" class="flex">ENJOY</div>
+            </div>
+        </div>
+
+        <!-- password generator -->
+        <div class="panelLarge grey">
+            <div class="fullSize">
+                <p class="panelHeader">Password Generator</p>
+                <div id="passwordGeneratorApp" class="flexCol justifyStart alignStart sizeWithHeader">
+                    <div id="passwordImg"></div>
+                    <div id="passwordBtn" class="btn redText" onclick="copyPassword()">your password</div>
+                    <div id="generatePasswordBtn" class="btn" onclick="generatePassword()">Generate Password</div>
+                    <div class="pwOptions flex">
+                        <input id="upperCaseLettersCheckbox" type="checkbox"> Use: &nbsp;<span id="upperCaseLetters"></span>
+                    </div>
+                    <div class="pwOptions flex">
+                        <input id="lowerCaseLettersCheckbox" type="checkbox"> Use: &nbsp;<span id="lowerCaseLetters"></span>
+                    </div>
+                    <div class="pwOptions flex">
+                        <input id="passwordNumbersCheckbox" type="checkbox"> Use: &nbsp;<span id="passwordNumbers"></span>
+                    </div>
+                    <div class="pwOptions flex">
+                        <input id="specialCharactersCheckbox" type="checkbox"> Use: &nbsp;<span id="specialCharacters"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- inspirational quote calendar -->
+        <div class="panelSm grey">
+            <div id="dailyMemo" class="flexCol fullSize">
+                <div id="dailyMemoTop" class="topBottomHalf flex">
+                    <div class="rightLeftHalf flexCol">
+                        <div id="dailyMemoDay" class="panelTitle fontSmSize flex alignEnd redText">SUNDAY</div>
+                        <div id="dailyMemoDateNumber" class="panelBody fontMidSize flex alignStart">25</div>
+                    </div>
+                    <div class="rightLeftHalf flex"></div>
+                </div>
+                <div id="dailyMemoBottom" class="topBottomHalf">
+                    <div id="dailyInspirationalQuote" class="fontSmSize sideMargin">
+                        <p id="inspirationalQuote" class="topBottomMargin"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- memory square game -->
+        <div class="panelSm blue">
+            <div id="memoryGameBoard" class="flexCol fullSize">
+                <div class="topBottomHalf flex">
+                    <!-- class used to highlight: memoryHighlight -->
+                    <div id="memoryGameTopLeft" class="memorySquare rightLeftHalf flexCol">
+                    </div>
+                    <div id="memoryGameTopRight" class="memorySquare rightLeftHalf flex"></div>
+                </div>
+                <span id="memoryCount">1</span>
+                <div class="topBottomHalf flex">
+                    <div id="memoryGameBottomLeft" class="memorySquare rightLeftHalf flexCol">
+                    </div>
+                    <div id="memoryGameBottomRight" class="memorySquare rightLeftHalf flex"></div>
+                </div>
+            </div>
+            <div class="flexCol fullSize">
+                <div id="memoryGameHome" class="flexCol fullSize">
+                    <div class="topBottomHalf flex">
+                        <div class="rightLeftHalf flexCol">
+                            <div class="panelTitle fontSmSize flex alignEnd redText">HS</div>
+                            <div class="panelBody fontMidSize flex alignStart">12</div>
+                        </div>
+                        <div class="rightLeftHalf flex">
+                            <div id="memoryStartBtn" class="btn">START</div>
+                        </div>
+                    </div>
+                    <div class="topBottomHalf">
+                        <div id="memoryTitle" class="sideMargin">
+                            <p>Memory Game</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- tiktactoe -->
+        <div class="panelSm blue">
+            <div id="tikTacToeBoard" class="flexCol fullSize">
+                <div id="topRow" class="flex">
+                    <div class="tictactoe topOne"></div>
+                    <div class="tictactoe topTwo"></div>
+                    <div class="tictactoe topThree"></div>
+                </div>
+                <div id="middleRow" class="flex">
+                    <div class="tictactoe middleOne"></div>
+                    <div class="tictactoe middleTwo"></div>
+                    <div class="tictactoe middleThree"></div>
+                </div>
+                <div id="bottomRow" class="flex">
+                    <div class="tictactoe bottomOne"></div>
+                    <div class="tictactoe bottomTwo"></div>
+                    <div class="tictactoe bottomThree"></div>
+                </div>
+            </div>
+            <div class="flexCol fullSize">
+                <div id="TikTacToeHome" class="flexCol fullSize">
+                    <div class="topBottomHalf flex">
+                        <div class="rightLeftHalf flexCol">
+                            <div class="panelTitle fontSmSize flex alignEnd redText">W/L</div>
+                            <div class="panelBody fontMidSize flex alignStart">8/6</div>
+                        </div>
+                        <div class="rightLeftHalf flex">
+                            <div id="memoryStartBtn" class="btn">START</div>
+                        </div>
+                    </div>
+                    <div class="topBottomHalf">
+                        <div id="memoryTitle" class="sideMargin">
+                            <p>Tik Tac Toe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- wacamoe -->
+        <div class="panelSm blue">
+            <div id="wacamoleBoard" class="flexCol fullSize">
+                <div id="topRow" class="flex">
+                    <div class="wacamole topOne"></div>
+                    <div class="wacamole topTwo"></div>
+                    <div class="wacamole topThree"></div>
+                </div>
+                <div id="middleRow" class="flex">
+                    <div class="wacamole middleOne"></div>
+                    <div class="wacamole middleTwo"></div>
+                    <div class="wacamole middleThree"></div>
+                </div>
+                <div id="bottomRow" class="flex">
+                    <div class="wacamole bottomOne"></div>
+                    <div class="wacamole bottomTwo"></div>
+                    <div class="wacamole bottomThree"></div>
+                </div>
+            </div>
+            <div class="flexCol fullSize">
+                <div id="WacAMoeHome" class="flexCol fullSize">
+                    <div class="topBottomHalf flex">
+                        <div class="rightLeftHalf flexCol">
+                            <div class="panelTitle fontSmSize flex alignEnd redText">HS</div>
+                            <div class="panelBody fontMidSize flex alignStart">12</div>
+                        </div>
+                        <div class="rightLeftHalf flex">
+                            <div id="memoryStartBtn" class="btn">START</div>
+                        </div>
+                    </div>
+                    <div class="topBottomHalf">
+                        <div id="memoryTitle" class="sideMargin">
+                            <p>Wac A Mole</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- game settings -->
+        <div class="panelMd grey">
+            <div class="fullSize">
+                <p class="panelHeader">Game Score Settings</p>
+                <div id="gameSettings" class="flex sizeWithHeader">
+                    <div class="flexCol alignStart">
+                        <div><input type="checkbox"> Memory Game</div>
+                        <div><input type="checkbox"> Tik Tac Toe</div>
+                        <div><input type="checkbox"> Wac A Mole</div>
+                        <div id="GameResetBtn" class="btn">Reset Score(s)</div>
+                    </div>
+                    <div id="statsImg"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- clock -->
+        <div class="panelSm blue">
+            <div id="clock" class="fullSize flex">
+                <div>
+                    <div id="hr">08</div>
+                    <div id="min">25</div>
+                    <div id="sec">02</div>
+                </div>
+                <div>
+                    <div id="dayTime">PM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- meditation app -->
+        <div class="panelSm blue">
+            <div id="meditationApp" class="fullSize flex">
+                <div></div>
+                <span id="meditationStart" class="redText" onclick="meditationStartBtn()">Start</span>
+                <div onclick="meditationStart()" id="meditationDirections" class="displayNone flex" ondblclick="meditationStart()">Breathe in when you see "UP" and breathe out when you see "Down". Click to start.</div>
+                <div id="breatheIn" class="displayNone redText"></div>
+                <div id="breatheOut" class="displayNone redText"></div>
+            </div>
+        </div>
+
+        <!-- tip calculator -->
+        <div class="panelMd blue">
+            <div id="tipCalculator" class="fullSize">
+                <p class="panelHeader">Don't forget to Tip!</p>
+                <div class="flexCol sizeWithHeader">
+                    <div class="flex">
+                        <input id="cost" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="$00.00">
+                        <input id="tip" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="tip%">
+                        <input id="numberOfPeople" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="# of ppl">
+                    </div>
+                    Split per person: <span id="pay" class="redText"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- news feed -->
+        <div class="panelLarge grey">
+            <div class="fullSize">
+                <p class="panelHeader">Top Stories</p>
+                <div class="flexCol sizeWithHeader">
+                    <div class="newArticle topBottomHalf flex">
+                        <div id="newsStoryText" class="half70 flexCol alignStart">
+                            <p class="newsSource fontSmSize upperCase">citynews1130</p>
+                            <p class="newsTitle">Burnaby launches program to make musical instruments, lessons more
+                                accessible for kids</p>
+                        </div>
+                        <div id="storyOneImage" class="half30"></div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="newArticle topBottomHalf flex">
+                        <div id="newsStoryText" class="half70 flexCol alignStart">
+                            <p class="newsSource fontSmSize upperCase">abc30</p>
+                            <p class="newsTitle">Crews search for the missing after devastating tornadoes</p>
+                        </div>
+                        <div id="storyTwoImage" class="half30"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- breaking bad quotes -->
+        <div class="panelLarge">
+            <div id="breakingBadApp" class="fullSize">
+                <div id="breakingBadImg" class="fullSize"></div>
+                <div id="quote" onclick="getQuote()">
+                    <div id="quoteTextContainer">
+                        <span id="quoteText"></span>
+                        <div id="breakingBadAuthor"></div>
+                        <span id="breakBadClick" class="redText">NEXT QUOTE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Psychology -->
+        <div class="panelMd">
+            <div id="colorPsychology" class="flex fullSize">
+            </div>
+        </div>
+
+        <!-- pokedex -->
+        <div class="panelLarge">
+            <div id="pokedexApp" class="fullSize">
+                <input id="pokemonSearch" type="text" onkeyup="getPokemonInfo()" placeholder="Search Pokémon">
+                <div id="pokemonInfo" class="flexCol">
+                    <div id="pokemonStats" class="flex">
+                        <div class="statRow flexCol alignStart">
+                            <p><span id="pokemonName"></span> #<span id="pokemonId"></span></p>
+                            <p>Ht/Wt <span id="pokemonHeight"></span>/<span id="pokemonWeight"></span></p>
+                            <p>HP <span id="pokemonHp"></span></p>
+                        </div>
+                        <div class="statRow flexCol alignStart">
+                            <p>Type <span id="pokemonType"></span></p>
+                            <p>ATK <span id="pokemonAtk"></span></p>
+                            <p>DEF <span id="pokemonDef"></span></p>
+                        </div>
+                    </div>
+                    <div id="pokemon"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- random jokes -->
+        <div class="panelMd blue">
+            <div id="jokeApp" class="flexCol fullSize" onclick="getNewJoke()">
+                <div id="joke">
+                    <span id="jokeText">Why couldn't the lifeguard save the hippie? He was too far out, man.</span>
+                    <span id="jokeClick" class="redText">NEXT JOKE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- fundamentals -->
+        <script src="./js/date.js"></script>
+        <script src="./js/tipCalculator.js"></script>
+        <script src="./js/colorPsychology.js"></script>
+        <script src="./js/passwordGenerator.js"></script>
+        <script src="./js/meditation.js"></script>
+
+        <!-- games -->
+
+        <!-- APIs -->
+        <script src="./js/breakingBad.js"></script>
+        <script src="./js/inspirationalQuote.js"></script>
+        <script src="./js/jokes.js"></script>
+        <script src="./js/pokemon.js"></script>
+
+    </div>
+
+</body>
+
+</html>
