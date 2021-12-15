@@ -19,7 +19,7 @@
 
 <body>
 
-    <div id="aboutContainer">
+    <!-- <div id="aboutContainer">
         <p id="greeting">Hi</p>
         <p id="about">My name is <span id="name">Isaiah</span> and I'm a Software Engineer. I have 6 years of experience
             in the industry and have been tutoring for 11 years. By the end of this course, I would have helped you
@@ -28,7 +28,7 @@
 
     <div id="myPic"></div>
 
-    <div id="bkgr"></div>
+    <div id="bkgr"></div> -->
 
     <div id="dashboard">
 
@@ -246,35 +246,48 @@
                 <p class="panelHeader">Don't forget to Tip!</p>
                 <div class="flexCol sizeWithHeader">
                     <div class="flex">
-                        <input id="cost" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="$00.00">
-                        <input id="tip" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="tip%">
-                        <input id="numberOfPeople" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="# of ppl">
+                        <input id="cost" class="smallInput" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="$00.00">
+                        <input id="tip" class="smallInput" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="tip%">
+                        <input id="numberOfPeople" class="smallInput" onkeyup="calculateTip()" onchange="calculateTip()" class="tipInput" type="number" placeholder="# of ppl">
                     </div>
                     Split per person: <span id="pay" class="redText"></span>
                 </div>
             </div>
         </div>
 
-        <!-- news feed -->
+        <!-- crud store -->
         <div class="panelLarge grey">
             <div class="fullSize">
-                <p class="panelHeader">Top Stories</p>
+                <p class="panelHeader">Crud Store</p>
                 <div class="flexCol sizeWithHeader">
-                    <div class="newArticle topBottomHalf flex">
-                        <div id="newsStoryText" class="half70 flexCol alignStart">
-                            <p class="newsSource fontSmSize upperCase">citynews1130</p>
-                            <p class="newsTitle">Burnaby launches program to make musical instruments, lessons more
-                                accessible for kids</p>
+                    <div class="topBottomHalf flex">
+                        <div class="rightLeftHalf flexCol">
+                            <p id="productHelpText"></p>
+                            <div id="createItemBtn" class="btn flex" onclick="createStoreItem()">CREATE ITEM</div>
+                            <div id="addItemBtn" class="btn flex displayNone">ADD</div>
                         </div>
-                        <div id="storyOneImage" class="half30"></div>
+                        <div class="rightLeftHalf flex">
+                            <div id="itemSelection" class="fullSize flex displayNone">
+                                <div class="rightLeftHalf flexCol">
+                                    <div id="chips" class="itemSelect" onclick="choiceProduct('chips')"></div>
+                                    <div id="juice" class="itemSelect" onclick="choiceProduct('juice')"></div>
+                                </div>
+                                <div class="rightLeftHalf flexCol">
+                                    <div id="sandwich" class="itemSelect" onclick="choiceProduct('sandwich')"></div>
+                                    <div id="apple" class="itemSelect" onclick="choiceProduct('apple')"></div>
+                                </div>
+                            </div>
+                            <div id="setPriceContainer" class="fullSize flex displayNone">
+                                <div id="selectedProduct" class="itemSelect"></div>
+                                <div>
+                                    <input id="selectedPrice" type="number" placeholder="$0.00" class="smallInput">
+                                    <div class="btn" onclick="addItem()">Add</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="line"></div>
-                    <div class="newArticle topBottomHalf flex">
-                        <div id="newsStoryText" class="half70 flexCol alignStart">
-                            <p class="newsSource fontSmSize upperCase">abc30</p>
-                            <p class="newsTitle">Crews search for the missing after devastating tornadoes</p>
-                        </div>
-                        <div id="storyTwoImage" class="half30"></div>
+                    <div id="pricedItems" class="topBottomHalf flex">
                     </div>
                 </div>
             </div>
@@ -324,7 +337,7 @@
 
         <!-- random jokes -->
         <div class="panelMd blue">
-            <div id="jokeApp" class="flexCol fullSize" onclick="getNewJoke()">
+            <div id="jokeApp" class="flexCol" onclick="getNewJoke()">
                 <div id="joke">
                     <span id="jokeText">Why couldn't the lifeguard save the hippie? He was too far out, man.</span>
                     <span id="jokeClick" class="redText">NEXT JOKE</span>
@@ -346,6 +359,7 @@
         <script src="./js/inspirationalQuote.js"></script>
         <script src="./js/jokes.js"></script>
         <script src="./js/pokemon.js"></script>
+        <script src="./js/store.js"></script>
 
     </div>
 
