@@ -12,25 +12,34 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- <div id="aboutContainer">
-        <p id="greeting">Hi</p>
-        <p id="about">My name is <span id="name">Isaiah</span> and I'm a Software Engineer. I have 6 years of experience
-            in the industry and have been tutoring for 11 years. By the end of this course, I would have helped you
-            master JavaScript.</p>
+    <div id="portfolioLeft" class="flex">
+        <div id="nameSection">
+            <div id="rotatedSection">
+                <div id="rotatedText">
+                    <p>Portfolio</p>
+                    <p>Isaiah Harrison</p>
+                </div>
+            </div>
+        </div>
+        <div id="imageSection" class="flexCol alignEnd justifyStart">
+            <div id="userPic"></div>
+            <div id="skillsSection">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div id="projectBtn" class="btn" onclick="toggleProjects()">Show Projects</div>
+        </div>
+    </div>
+    <div id="portfolioRight">
+        <div id="rightSideText">SIM·PLIS·TIC</div>
+        <div id="pens"></div>
     </div>
 
-    <div id="myPic"></div>
-
-    <div id="bkgr"></div> -->
-
-    <div id="dashboard">
+    <div id="dashboard" nodisplay>
 
         <!-- video player -->
         <div class="panelMd grey">
@@ -330,6 +339,7 @@
                             <p>DEF <span id="pokemonDef"></span></p>
                         </div>
                     </div>
+                    <a href="https://pokemondb.net/pokedex/national" target="_blank">pokemon reference here</a>
                     <div id="pokemon"></div>
                 </div>
             </div>
@@ -360,6 +370,8 @@
         <script src="./js/jokes.js"></script>
         <script src="./js/pokemon.js"></script>
         <script src="./js/store.js"></script>
+
+        <script src="./js/main.js"></script>
 
     </div>
 
