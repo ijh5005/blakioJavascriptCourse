@@ -5,7 +5,7 @@
     --lightGrey: #919191;
     --font: 'Readex Pro', sans-serif;
     --blackbg: url(./assets/bg.png);
-    --me: url(./assets/me.jpg);
+    --me: url(./assets/me.png);
     --grey: #1E1E1E;
     --blue: url(./assets/bluebg.png);
     --blueBG: url(./assets/blue.png);
@@ -52,8 +52,8 @@
     width: 246px;
     background-color: #000;
     margin: 28px;
-    background-image: url(./assets/me.jpg);
-    background-size: 100%;
+    background-image: var(--me);
+    background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: luminosity;
@@ -431,6 +431,14 @@ input[type=number].smallInput {
     color: var(--lightGrey);
     overflow-y: scroll;
     height: 100%;
+}
+
+#dailyMemoTop {
+    width: 100%;
+}
+
+#dailyMemoBottom {
+    height: 60%;
 }
 
 /* ------------------------------------------------------------------- */
