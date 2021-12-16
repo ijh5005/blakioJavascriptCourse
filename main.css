@@ -576,7 +576,7 @@ input[type=number].smallInput {
 }
 
 /* ------------------------------------------------------------------- */
-/* tip calculator */
+/* clock */
 
 #clock {
     color: #6ac1ff;
@@ -644,6 +644,12 @@ input[type=number].smallInput {
     width: 90px;
     margin: 3px;
     padding: 6px;
+}
+
+#splitAmountSection {
+    font-size: 20px;
+    margin-top: 18px;
+    font-weight: 300;
 }
 
 /* ------------------------------------------------------------------- */

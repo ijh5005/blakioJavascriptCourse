@@ -84,6 +84,9 @@ const addToShelf = () => {
     if(allProducts.length === 4){
         setHelpText("Shelf full. Delete items to add more.");
     } else {
+        if(allProducts.length === 1){
+            document.getElementById("pricedItems").classList.add("diplayNone");
+        }
         showElementById("createItemBtn");
     }
 }
