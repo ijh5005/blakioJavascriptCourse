@@ -123,17 +123,22 @@ body {
     backdrop-filter: blur(5px);
     position: absolute;
     right: 0;
-    width: 24em;
+    width: 23.5em;
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
+    transition: 1s;
+}
+
+[offscreen]#dashboard {
+    right: -24em;
 }
 
 .panelSm {
     float: left;
     height: 11rem;
-    width: 11rem;
+    width: 11.25rem;
     background-color: #FFF;
-    margin: 0.5em;
+    margin: 4px;
     border-radius: 2px;
     overflow: hidden;
 }
@@ -153,7 +158,7 @@ body {
     height: 23rem;
     width: 23rem;
     background-color: #FFF;
-    margin: 0.5em;
+    margin: 4px;
     border-radius: 2px;
     overflow: hidden;
 }

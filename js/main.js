@@ -1,3 +1,3 @@
 const toggleProjects = () => {
-    document.getElementById("dashboard").toggleAttribute("nodisplay");
+    document.getElementById("dashboard").toggleAttribute("offscreen");
 }
