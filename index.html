@@ -154,25 +154,52 @@
         </div>
 
         <!-- tiktactoe -->
-        <div class="panelSm blue">
-            <div id="tikTacToeBoard" class="flexCol fullSize">
+        <div relative class="panelSm blue">
+            <div nodisplay id="tikTacToeBoard" class="flexCol fullSize">
                 <div id="topRow" class="flex">
-                    <div class="tictactoe topOne"></div>
-                    <div class="tictactoe topTwo"></div>
-                    <div class="tictactoe topThree"></div>
+                    <div
+                        id="1"
+                        onclick="selectSquare('1')"
+                        class="tictactoe topOne">1</div>
+                    <div
+                        id="2"
+                        onclick="selectSquare('2')"
+                        class="tictactoe topTwo">2</div>
+                    <div
+                        id="3"
+                        onclick="selectSquare('3')"
+                        class="tictactoe topThree">3</div>
                 </div>
                 <div id="middleRow" class="flex">
-                    <div class="tictactoe middleOne"></div>
-                    <div class="tictactoe middleTwo"></div>
-                    <div class="tictactoe middleThree"></div>
+                    <div
+                        id="4"
+                        onclick="selectSquare('4')"
+                        class="tictactoe middleOne">4</div>
+                    <div
+                        id="5"
+                        onclick="selectSquare('5')"
+                        class="tictactoe middleTwo">5</div>
+                    <div
+                        id="6"
+                        onclick="selectSquare('6')"
+                        class="tictactoe middleThree">6</div>
                 </div>
                 <div id="bottomRow" class="flex">
-                    <div class="tictactoe bottomOne"></div>
-                    <div class="tictactoe bottomTwo"></div>
-                    <div class="tictactoe bottomThree"></div>
+                    <div
+                        id="7"
+                        onclick="selectSquare('7')"
+                        class="tictactoe bottomOne">7</div>
+                    <div
+                        id="8"
+                        onclick="selectSquare('8')"
+                        class="tictactoe bottomTwo">8</div>
+                    <div
+                        id="9"
+                        onclick="selectSquare('9')"
+                        class="tictactoe bottomThree">9</div>
                 </div>
             </div>
-            <div class="flexCol fullSize">
+            <div id="tikTacToeHome" class="flexCol fullSize">
                 <div id="TikTacToeHome" class="flexCol fullSize">
                     <div class="topBottomHalf flex">
                         <div class="rightLeftHalf flexCol">
@@ -180,7 +207,10 @@
                             <div class="panelBody fontMidSize flex alignStart">8/6</div>
                         </div>
                         <div class="rightLeftHalf flex">
-                            <div id="memoryStartBtn" class="btn">START</div>
+                            <div
+                                id="memoryStartBtn"
+                                class="btn"
+                                onclick="showTikTacToeDirections()">START</div>
                         </div>
                     </div>
                     <div class="topBottomHalf">
@@ -190,10 +220,16 @@
                     </div>
                 </div>
             </div>
+            <div
+                nodisplay
+                onclick="tikTacToeGameStart()"
+                id="tikTacToeGameDirections"
+                class="directionsSm flex">
+            First to score three in a row wins. Click to play!</div>
         </div>
 
         <!-- wacamoe -->
-        <div class="panelSm blue">
+        <div relative class="panelSm blue">
             <div id="wacamoleBoard" class="flexCol fullSize">
                 <div id="topRow" class="flex">
                     <div class="wacamole topOne"></div>
@@ -388,6 +424,7 @@
 
         <!-- games -->
         <script src="./js/memory.js"></script>
+        <script src="./js/tikactoe.js"></script>
 
         <!-- APIs -->
         <script src="./js/breakingBad.js"></script>

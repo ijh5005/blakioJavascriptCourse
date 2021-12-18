@@ -506,10 +506,6 @@ input[type=number].smallInput {
 /* ------------------------------------------------------------------- */
 /* tiktactoe */
 
-#tikTacToeBoard {
-    display: none;
-}
-
 #topRow,
 #middleRow,
 #bottomRow {
@@ -541,11 +537,11 @@ input[type=number].smallInput {
     border-right: 1px solid var(--panelBorderBlue);
 }
 
-.tictactoe.topOne {
+.tictactoe.x {
     background-image: url(./assets/x.png);
 }
 
-.tictactoe.topTwo {
+.tictactoe.o {
     background-image: url(./assets/o.png);
 }
 
