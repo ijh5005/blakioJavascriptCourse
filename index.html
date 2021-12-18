@@ -95,30 +95,52 @@
         </div>
 
         <!-- memory square game -->
-        <div class="panelSm blue">
-            <div id="memoryGameBoard" class="flexCol fullSize">
+        <div relative class="panelSm blue">
+            <div nodisplay id="memoryGameBoard" class="flexCol fullSize">
                 <div class="topBottomHalf flex">
                     <!-- class used to highlight: memoryHighlight -->
-                    <div id="memoryGameTopLeft" class="memorySquare rightLeftHalf flexCol">
-                    </div>
-                    <div id="memoryGameTopRight" class="memorySquare rightLeftHalf flex"></div>
+                    <div
+                        id="memoryGameTopLeft"
+                        class="memorySquare rightLeftHalf flexCol"
+                        onmousemove="addHighlight('memoryGameTopLeft')"
+                        onmouseleave="removeHighlight('memoryGameTopLeft')"
+                        onclick="makeMemoryGuess('memoryGameTopLeft')"
+                    ></div>
+                    <div
+                        id="memoryGameTopRight"
+                        class="memorySquare rightLeftHalf flex"
+                        onmousemove="addHighlight('memoryGameTopRight')"
+                        onmouseleave="removeHighlight('memoryGameTopRight')"
+                        onclick="makeMemoryGuess('memoryGameTopRight')"
+                    ></div>
                 </div>
-                <span id="memoryCount">1</span>
+                <span id="memoryCount">0</span>
                 <div class="topBottomHalf flex">
-                    <div id="memoryGameBottomLeft" class="memorySquare rightLeftHalf flexCol">
-                    </div>
-                    <div id="memoryGameBottomRight" class="memorySquare rightLeftHalf flex"></div>
+                    <div
+                        id="memoryGameBottomLeft"
+                        class="memorySquare rightLeftHalf flexCol"
+                        onmousemove="addHighlight('memoryGameBottomLeft')"
+                        onmouseleave="removeHighlight('memoryGameBottomLeft')"
+                        onclick="makeMemoryGuess('memoryGameBottomLeft')"
+                    ></div>
+                    <div
+                        id="memoryGameBottomRight"
+                        class="memorySquare rightLeftHalf flex"
+                        onmousemove="addHighlight('memoryGameBottomRight')"
+                        onmouseleave="removeHighlight('memoryGameBottomRight')"
+                        onclick="makeMemoryGuess('memoryGameBottomRight')"
+                    ></div>
                 </div>
             </div>
-            <div class="flexCol fullSize">
+            <div id="memoryGameHomeScreen" class="flexCol fullSize">
                 <div id="memoryGameHome" class="flexCol fullSize">
                     <div class="topBottomHalf flex">
                         <div class="rightLeftHalf flexCol">
                             <div class="panelTitle fontSmSize flex alignEnd redText">HS</div>
-                            <div class="panelBody fontMidSize flex alignStart">12</div>
+                            <div id="memoryGameHighScore" class="panelBody fontMidSize flex alignStart">0</div>
                         </div>
                         <div class="rightLeftHalf flex">
-                            <div id="memoryStartBtn" class="btn">START</div>
+                            <div id="memoryStartBtn" class="btn" onclick="showMemoryGameDirections()">START</div>
                         </div>
                     </div>
                     <div class="topBottomHalf">
@@ -128,6 +150,7 @@
                     </div>
                 </div>
             </div>
+            <div nodisplay onclick="memoryGameStart()" id="memoryGameDirections" class="directionsSm flex">Select the sequence of highlight boxes each round. Click to play!</div>
         </div>
 
         <!-- tiktactoe -->
@@ -243,7 +266,7 @@
             <div id="meditationApp" class="fullSize flex">
                 <div></div>
                 <span id="meditationStart" class="redText" onclick="meditationStartBtn()">Start</span>
-                <div onclick="meditationStart()" id="meditationDirections" class="displayNone flex" ondblclick="meditationStart()">Breathe in when you see "UP" and breathe out when you see "Down". Click to start.</div>
+                <div onclick="meditationStart()" id="meditationDirections" class="directionsSm displayNone flex">Breathe in when you see "UP" and breathe out when you see "Down". Click to start.</div>
                 <div id="breatheIn" class="displayNone redText"></div>
                 <div id="breatheOut" class="displayNone redText"></div>
             </div>
@@ -364,6 +387,7 @@
         <script src="./js/meditation.js"></script>
 
         <!-- games -->
+        <script src="./js/memory.js"></script>
 
         <!-- APIs -->
         <script src="./js/breakingBad.js"></script>
