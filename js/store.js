@@ -1,6 +1,8 @@
 let selectedProduct = "";
 const allProducts = [];
 
+// https://crudcrud.com/
+
 const showElementById = id => {
     document.getElementById(id).classList.remove("displayNone");
 }
