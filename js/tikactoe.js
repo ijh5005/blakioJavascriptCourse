@@ -108,6 +108,15 @@ const getOScoringChances = () => {
     return combinations;
 }
 
+const allBoxesTaken = () => {
+    const combinations = [
+        hasXorO(1), hasXorO(2), hasXorO(3),
+        hasXorO(4), hasXorO(5), hasXorO(6),
+        hasXorO(7), hasXorO(8), hasXorO(9),
+    ];
+    return !combinations.includes(false);
+}
+
 const resetGame = () => {
     squaresWithX.length = 0;
     squaresWithO.length = 0;
@@ -115,6 +124,12 @@ const resetGame = () => {
     isCpuTurn = false;
     document.getElementById("tikTacToeHome").toggleAttribute("nodisplay");
     document.getElementById("tikTacToeBoard").toggleAttribute("nodisplay");
+
+    const allSquares = document.getElementsByClassName("tictactoe");
+    for(let i = 0; i < allSquares.length; i++){
+        allSquares[i].classList.remove("x");
+        allSquares[i].classList.remove("o");
+    }
 }
 
 const makeCpuSelection = square => {
@@ -160,7 +175,12 @@ const makeComputerMove = () => {
         populateOpenSquares();
         const randonIndex = Math.floor(Math.random() * openSquares.length);
         makeCpuSelection(openSquares[randonIndex]);
-    } 
+    }
+    if(allBoxesTaken()){
+        setTimeout(() => {
+            resetGame();
+        }, 4000);
+    }
 }
 
 const squareIsOpen = id => {
@@ -176,6 +196,10 @@ const selectSquare = id => {
         squaresWithX.push(id);
         if(hasXScored()){
             playerScore("ply");
+        } else if(allBoxesTaken()){
+            setTimeout(() => {
+                resetGame();
+            }, 4000);
         } else {
             isCpuTurn = true;
             setTimeout(() => {
