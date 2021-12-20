@@ -546,11 +546,11 @@ input[type=number].smallInput {
 }
 
 /* ------------------------------------------------------------------- */
-/* wacamoe */
+/* Whac-A-Mole */
 
-#wacamoleBoard > #topRow > div,
-#wacamoleBoard > #middleRow > div,
-#wacamoleBoard > #bottomRow > div {
+#whacAMoleBoard > #topRow > div,
+#whacAMoleBoard > #middleRow > div,
+#whacAMoleBoard > #bottomRow > div {
     height: 100%;
     width: 33%;
     background-position: center;
@@ -558,13 +558,33 @@ input[type=number].smallInput {
     background-repeat: no-repeat;
 }
 
-#wacamoleBoard {
-    display: none;
+#whacAMoleBoard {
     cursor: url(./assets/mallet.cur), grab;
 }
 
-.wacamole.middleTwo {
+.whacAMole.dirt {
+    background-image: url(./assets/dirt.png);
+}
+
+.whacAMole.mole {
     background-image: url(./assets/mole.png);
+}
+
+.whacAMole.hitMole {
+    background-color: #600000;
+}
+
+#whacAMoleCount,
+#whacAMoleCountDown {
+    position: absolute;
+    font-size: 2em;
+    pointer-events: none;
+}
+
+#whacAMoleCountDown {
+    top: 0;
+    left: 0;
+    font-size: 1em;
 }
 
 /* ------------------------------------------------------------------- */

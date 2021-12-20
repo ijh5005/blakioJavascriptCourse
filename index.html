@@ -230,32 +230,34 @@
 
         <!-- wacamoe -->
         <div relative class="panelSm blue">
-            <div id="wacamoleBoard" class="flexCol fullSize">
+            <div nodisplay id="whacAMoleBoard" class="flexCol fullSize">
                 <div id="topRow" class="flex">
-                    <div class="wacamole topOne"></div>
-                    <div class="wacamole topTwo"></div>
-                    <div class="wacamole topThree"></div>
+                    <div class="whacAMole topOne dirt" onclick="whacMole('topOne')"></div>
+                    <div class="whacAMole topTwo dirt" onclick="whacMole('topTwo')"></div>
+                    <div class="whacAMole topThree dirt" onclick="whacMole('topThree')"></div>
                 </div>
+                <span id="whacAMoleCount">0</span>
+                <span id="whacAMoleCountDown">0</span>
                 <div id="middleRow" class="flex">
-                    <div class="wacamole middleOne"></div>
-                    <div class="wacamole middleTwo"></div>
-                    <div class="wacamole middleThree"></div>
+                    <div class="whacAMole middleOne dirt" onclick="whacMole('middleOne')"></div>
+                    <div class="whacAMole middleTwo dirt" onclick="whacMole('middleTwo')"></div>
+                    <div class="whacAMole middleThree dirt" onclick="whacMole('middleThree')"></div>
                 </div>
                 <div id="bottomRow" class="flex">
-                    <div class="wacamole bottomOne"></div>
-                    <div class="wacamole bottomTwo"></div>
-                    <div class="wacamole bottomThree"></div>
+                    <div class="whacAMole bottomOne dirt" onclick="whacMole('bottomOne')"></div>
+                    <div class="whacAMole bottomTwo dirt" onclick="whacMole('bottomTwo')"></div>
+                    <div class="whacAMole bottomThree dirt" onclick="whacMole('bottomThree')"></div>
                 </div>
             </div>
-            <div class="flexCol fullSize">
-                <div id="WacAMoeHome" class="flexCol fullSize">
+            <div id="whacAMoleHome" class="flexCol fullSize">
+                <div class="flexCol fullSize">
                     <div class="topBottomHalf flex">
                         <div class="rightLeftHalf flexCol">
                             <div class="panelTitle fontSmSize flex alignEnd redText">HS</div>
                             <div class="panelBody fontMidSize flex alignStart">12</div>
                         </div>
                         <div class="rightLeftHalf flex">
-                            <div id="memoryStartBtn" class="btn">START</div>
+                            <div id="memoryStartBtn" class="btn" onclick="whacAMoleMenuStart()">START</div>
                         </div>
                     </div>
                     <div class="topBottomHalf">
@@ -265,6 +267,12 @@
                     </div>
                 </div>
             </div>
+            <div
+                nodisplay
+                onclick="whacAMoleStart()"
+                id="whacAMoleDirections"
+                class="directionsSm flex">
+            Wack the mole to score!</div>
         </div>
 
         <!-- game settings -->
@@ -425,6 +433,7 @@
         <!-- games -->
         <script src="./js/memory.js"></script>
         <script src="./js/tikactoe.js"></script>
+        <script src="./js/whacAMole.js"></script>
 
         <!-- APIs -->
         <script src="./js/breakingBad.js"></script>
