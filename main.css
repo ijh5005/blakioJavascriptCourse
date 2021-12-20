@@ -201,6 +201,10 @@ body {
     text-align: center;
 }
 
+.directionsSm[opacity] {
+    opacity: 0.8;
+}
+
 .flex {
     display: flex;
     justify-content: center;

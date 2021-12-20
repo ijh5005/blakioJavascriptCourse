@@ -6,6 +6,15 @@ let maxSeconds = 20;
 
 let count = 0;
 
+let goHome = false;
+
+let canClick = true;
+
+const whakAMoleText = {
+    intro: "Wack the mole to score! Click to play.",
+    endText: "You have scores X"
+}
+
 const whacPositions = [
     "topOne",
     "topTwo",
@@ -58,15 +67,27 @@ const randomizeMole = () => {
 
 const whacAMoleMenuStart = () => {
     document.getElementById("whacAMoleHome").toggleAttribute("nodisplay");
-    document.getElementById("whacAMoleDirections").toggleAttribute("nodisplay");
+    const direction = document.getElementById("whacAMoleDirections");
+    direction.toggleAttribute("nodisplay");
+    direction.innerText = whakAMoleText.intro;
 }
 
 const resetwhacAMoleGame = () => {
-    document.getElementById("whacAMoleHome").toggleAttribute("nodisplay");
-    document.getElementById("whacAMoleBoard").toggleAttribute("nodisplay");
+    const directions = document.getElementById("whacAMoleDirections");
+    directions.toggleAttribute("nodisplay");
+    directions.innerText = whakAMoleText.endText.replace("X", count);
+    directions.toggleAttribute("opacity");
     clearInterval(random);
     clearInterval(check);
     count = 0;
+    canClick = false;
+    setTimeout(() => {
+        directions.toggleAttribute("opacity");
+        document.getElementById("whacAMoleBoard").toggleAttribute("nodisplay");
+        document.getElementById("whacAMoleDirections").toggleAttribute("nodisplay");
+        document.getElementById("whacAMoleHome").toggleAttribute("nodisplay");
+        canClick = true;
+    }, 4000);
 }
 
 const startTimer = () => {
@@ -83,9 +104,11 @@ const startTimer = () => {
 }
 
 const whacAMoleStart = () => {
-    document.getElementById("whacAMoleDirections").toggleAttribute("nodisplay");
-    document.getElementById("whacAMoleBoard").toggleAttribute("nodisplay");
-    randomizeMole();
-    startTimer();
-    document.getElementById("whacAMoleCount").innerText = count;
+    if(canClick){
+        document.getElementById("whacAMoleDirections").toggleAttribute("nodisplay");
+        document.getElementById("whacAMoleBoard").toggleAttribute("nodisplay");
+        randomizeMole();
+        startTimer();
+        document.getElementById("whacAMoleCount").innerText = count;
+    }
 }
