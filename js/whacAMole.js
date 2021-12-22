@@ -12,7 +12,7 @@ let canClick = true;
 
 const whakAMoleText = {
     intro: "Wack the mole to score! Click to play.",
-    endText: "You have scores X"
+    endText: "You have scored X"
 }
 
 const whacPositions = [
