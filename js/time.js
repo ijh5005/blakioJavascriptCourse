@@ -33,7 +33,8 @@ const getSec = () => {
 }
 
 const getTimeOfDay = () => {
-    const hr = getHr();
+    const time = new Date();
+    const hr = time.getHours();
     if(hr > 11) {
         return "PM";
     }
