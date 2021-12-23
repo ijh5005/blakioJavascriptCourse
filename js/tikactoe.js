@@ -154,11 +154,6 @@ const populateOpenSquares = () => {
 const playerScore = ply => {
     isCpuTurn = true;
     setTimeout(() => {
-        if(ply === "cpu"){
-            console.log("cpu scored");
-        } else {
-            console.log("ply scored");
-        }
         resetGame();
     }, 2000);
 }
