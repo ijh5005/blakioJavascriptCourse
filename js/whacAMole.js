@@ -11,7 +11,7 @@ let goHome = false;
 let canClick = true;
 
 const whakAMoleText = {
-    intro: "Wack the mole to score! Click to play.",
+    intro: "Whak the mole to score! Click to play.",
     endText: "You have scored X"
 }
 
