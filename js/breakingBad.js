@@ -12,7 +12,9 @@ const getQuote = () => {
     fetch(quoteUrl)
         .then(response => response.json())
         .then(data => {
+            // set quote to HTML
             setQuote(data[0].quote);
+            // set author to HTML
             setAuthor(data[0].author)
         })
         .catch(err => console.error(err));

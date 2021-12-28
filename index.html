@@ -96,51 +96,51 @@
 
         <!-- memory square game -->
         <div relative class="panelSm blue">
-            <div nodisplay id="memoryGameBoard" class="flexCol fullSize">
+            <div nodisplay id="mgBoard" class="flexCol fullSize">
                 <div class="topBottomHalf flex">
                     <!-- class used to highlight: memoryHighlight -->
                     <div
-                        id="memoryGameTopLeft"
-                        class="memorySquare rightLeftHalf flexCol"
-                        onmousemove="addHighlight('memoryGameTopLeft')"
-                        onmouseleave="removeHighlight('memoryGameTopLeft')"
-                        onclick="makeMemoryGuess('memoryGameTopLeft')"
+                        id="mgTopLeft"
+                        class="mgSquare rightLeftHalf flexCol"
+                        onmousemove="addHighlight('mgTopLeft')"
+                        onmouseleave="removeHighlight('mgTopLeft')"
+                        onclick="makeMemoryGuess('mgTopLeft')"
                     ></div>
                     <div
-                        id="memoryGameTopRight"
-                        class="memorySquare rightLeftHalf flex"
-                        onmousemove="addHighlight('memoryGameTopRight')"
-                        onmouseleave="removeHighlight('memoryGameTopRight')"
-                        onclick="makeMemoryGuess('memoryGameTopRight')"
+                        id="mgTopRight"
+                        class="mgSquare rightLeftHalf flex"
+                        onmousemove="addHighlight('mgTopRight')"
+                        onmouseleave="removeHighlight('mgTopRight')"
+                        onclick="makeMemoryGuess('mgTopRight')"
                     ></div>
                 </div>
-                <span id="memoryCount">0</span>
+                <span id="mgCount">0</span>
                 <div class="topBottomHalf flex">
                     <div
-                        id="memoryGameBottomLeft"
-                        class="memorySquare rightLeftHalf flexCol"
-                        onmousemove="addHighlight('memoryGameBottomLeft')"
-                        onmouseleave="removeHighlight('memoryGameBottomLeft')"
-                        onclick="makeMemoryGuess('memoryGameBottomLeft')"
+                        id="mgBottomLeft"
+                        class="mgSquare rightLeftHalf flexCol"
+                        onmousemove="addHighlight('mgBottomLeft')"
+                        onmouseleave="removeHighlight('mgBottomLeft')"
+                        onclick="makeMemoryGuess('mgBottomLeft')"
                     ></div>
                     <div
-                        id="memoryGameBottomRight"
-                        class="memorySquare rightLeftHalf flex"
-                        onmousemove="addHighlight('memoryGameBottomRight')"
-                        onmouseleave="removeHighlight('memoryGameBottomRight')"
-                        onclick="makeMemoryGuess('memoryGameBottomRight')"
+                        id="mgBottomRight"
+                        class="mgSquare rightLeftHalf flex"
+                        onmousemove="addHighlight('mgBottomRight')"
+                        onmouseleave="removeHighlight('mgBottomRight')"
+                        onclick="makeMemoryGuess('mgBottomRight')"
                     ></div>
                 </div>
             </div>
-            <div id="memoryGameHomeScreen" class="flexCol fullSize">
-                <div id="memoryGameHome" class="flexCol fullSize">
+            <div id="mgHomeScreen" class="flexCol fullSize">
+                <div id="mgGameHome" class="flexCol fullSize">
                     <div class="topBottomHalf flex">
                         <div class="rightLeftHalf flexCol">
                             <div class="panelTitle fontSmSize flex alignEnd redText">HS</div>
-                            <div id="memoryGameHighScore" class="panelBody fontMidSize flex alignStart">0</div>
+                            <div id="mgHighScore" class="panelBody fontMidSize flex alignStart">0</div>
                         </div>
                         <div class="rightLeftHalf flex">
-                            <div id="memoryStartBtn" class="btn" onclick="showMemoryGameDirections()">START</div>
+                            <div id="mgStartBtn" class="btn" onclick="showMGDirections()">START</div>
                         </div>
                     </div>
                     <div class="topBottomHalf">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <div nodisplay onclick="memoryGameStart()" id="memoryGameDirections" class="directionsSm flex">Select the sequence of highed boxes each round. Click to play!</div>
+            <div nodisplay onclick="memoryGameStart()" id="mgDirections" class="directionsSm flex">Select the sequence of highed boxes each round. Click to play!</div>
         </div>
 
         <!-- tiktactoe -->
@@ -208,14 +208,14 @@
                         </div>
                         <div class="rightLeftHalf flex">
                             <div
-                                id="memoryStartBtn"
+                                id="mgStartBtn"
                                 class="btn"
                                 onclick="showTikTacToeDirections()">START</div>
                         </div>
                     </div>
                     <div class="topBottomHalf">
                         <div id="memoryTitle" class="sideMargin">
-                            <p>Tic Tac Toe</p>
+                            <p class="flex">Tic Tac Toe</p>
                         </div>
                     </div>
                 </div>
@@ -249,7 +249,7 @@
                     <div class="whacAMole bottomThree dirt" onclick="whacMole('bottomThree')"></div>
                 </div>
             </div>
-            <div id="whacAMoleHome" class="flexCol fullSize">
+            <div id="whakAMoleHome" class="flexCol fullSize">
                 <div class="flexCol fullSize">
                     <div class="topBottomHalf flex">
                         <div class="rightLeftHalf flexCol">
@@ -257,11 +257,11 @@
                             <div class="panelBody fontMidSize flex alignStart">12</div>
                         </div>
                         <div class="rightLeftHalf flex">
-                            <div id="memoryStartBtn" class="btn" onclick="whacAMoleMenuStart()">START</div>
+                            <div id="mgStartBtn" class="btn" onclick="whacAMoleMenuStart()">START</div>
                         </div>
                     </div>
                     <div class="topBottomHalf">
-                        <div id="memoryTitle" class="sideMargin">
+                        <div id="whakamoleTitle" class="sideMargin">
                             <p>Whak A Mole</p>
                         </div>
                     </div>

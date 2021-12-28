@@ -1,3 +1,4 @@
+// text to color mapper
 const colorMap = {
     Excitement: "cpRed",
     Strength: "cpRed",
@@ -40,11 +41,22 @@ const colorMap = {
     Honest: "cpWhite"
 }
 
+const getColorBox = text => {
+    // create a div
+    const div = document.createElement("div");
+    // add classes to div
+    div.classList.add("btn");
+    div.classList.add(colorMap[text]);
+    // set div text to word
+    div.innerText = text;
+    return div;
+}
+
 const setColorToWord = () => {
     for(let text in colorMap){
-        const div = document.createElement("div");
-        div.classList = "btn " + colorMap[text];
-        div.innerText = text;
+        // get div with text
+        const div = getColorBox(text);
+        // add div to HTML
         document.getElementById("colorPsychology").appendChild(div);
     }
 }

@@ -66,7 +66,7 @@ const randomizeMole = () => {
 }
 
 const whacAMoleMenuStart = () => {
-    document.getElementById("whacAMoleHome").toggleAttribute("nodisplay");
+    document.getElementById("whakAMoleHome").toggleAttribute("nodisplay");
     const direction = document.getElementById("whacAMoleDirections");
     direction.toggleAttribute("nodisplay");
     direction.innerText = whakAMoleText.intro;
@@ -85,7 +85,7 @@ const resetwhacAMoleGame = () => {
         directions.toggleAttribute("opacity");
         document.getElementById("whacAMoleBoard").toggleAttribute("nodisplay");
         document.getElementById("whacAMoleDirections").toggleAttribute("nodisplay");
-        document.getElementById("whacAMoleHome").toggleAttribute("nodisplay");
+        document.getElementById("whakAMoleHome").toggleAttribute("nodisplay");
         canClick = true;
     }, 4000);
 }

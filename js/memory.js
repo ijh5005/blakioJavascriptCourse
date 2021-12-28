@@ -1,22 +1,23 @@
-const memorySquareIds = ["memoryGameTopLeft", "memoryGameTopRight", "memoryGameBottomLeft", "memoryGameBottomRight"];
+const memorySquareIds = ["mgTopLeft", "mgTopRight", "mgBottomLeft", "mgBottomRight"];
 const cpuSequence = [];
 const userSequence = [];
-let memoryCpuTurn = true;
+let mgCpuTurn = true;
 let currentGuessIndex = 0;
-let hasHighScore = localStorage.getItem("memoryGameHighScore");
-if(!hasHighScore){
-    localStorage.setItem("memoryGameHighScore", 0);
-}
 
 const setMemoryGameHighScore = score => {
-    document.getElementById("memoryGameHighScore").innerText = score;
-    localStorage.setItem("memoryGameHighScore", score);
+    const mgHighScore = localStorage.getItem("mgHighScore");
+    if(!mgHighScore){
+        localStorage.setItem("mgHighScore", 0);
+        score = localStorage.getItem("mgHighScore", 0);
+    }
+    document.getElementById("mgHighScore").innerText = score;
+    localStorage.setItem("mgHighScore", score);
 }
 
-setMemoryGameHighScore(hasHighScore);
+setMemoryGameHighScore(localStorage.getItem("mgHighScore"));
 
-const showMemoryGameDirections = () => {
-    document.getElementById("memoryGameDirections").toggleAttribute("nodisplay");
+const showMGDirections = () => {
+    document.getElementById("mgDirections").toggleAttribute("nodisplay");
 }
 
 const getRandomSquare = () => {
@@ -40,12 +41,12 @@ const playSequence = () => {
         elapseTime += 1000;
     });
     setTimeout(() => {
-        memoryCpuTurn = false;
+        mgCpuTurn = false;
     }, elapseTime - 300);
 }
 
 const addHighlight = id => {
-    if(!memoryCpuTurn){
+    if(!mgCpuTurn){
         const classlist = document.getElementById(id).classList;
         if(!classlist.contains("playerClick")){
             document.getElementById(id).classList.add("playerClick");
@@ -67,25 +68,25 @@ const youLoseInMemoryGame = () => {
     currentGuessIndex = 0;
     cpuSequence.length = 0;
     userSequence.length = 0;
-    memoryCpuTurn = true;
-    document.getElementById("memoryCount").innerText = 0;
-    document.getElementById("memoryGameBoard").toggleAttribute("nodisplay");
-    document.getElementById("memoryGameHomeScreen").toggleAttribute("nodisplay");
+    mgCpuTurn = true;
+    document.getElementById("mgCount").innerText = 0;
+    document.getElementById("mgBoard").toggleAttribute("nodisplay");
+    document.getElementById("mgHomeScreen").toggleAttribute("nodisplay");
 }
 
 const increaseMemoryCount = () => {
-    const count = document.getElementById("memoryCount").innerText;
+    const count = document.getElementById("mgCount").innerText;
     const newCount = parseInt(count) + 1;
-    document.getElementById("memoryCount").innerText = newCount;
+    document.getElementById("mgCount").innerText = newCount;
 
-    const highScore = localStorage.getItem("memoryGameHighScore");
+    const highScore = localStorage.getItem("mgHighScore");
     if(newCount > parseInt(highScore)){
         setMemoryGameHighScore(newCount);
     }
 }
 
 const makeMemoryGuess = id => {
-    if(!memoryCpuTurn){
+    if(!mgCpuTurn){
         userSequence.push(id);
         guessedCorrectly = userSequence[currentGuessIndex] === cpuSequence[currentGuessIndex];
         if(!guessedCorrectly){
@@ -95,7 +96,7 @@ const makeMemoryGuess = id => {
         }
         atFinalGuess = currentGuessIndex === cpuSequence.length;
         if(atFinalGuess && guessedCorrectly){
-            memoryCpuTurn = true;
+            mgCpuTurn = true;
             currentGuessIndex = 0;
             userSequence.length = 0;
             increaseMemoryCount();
@@ -105,8 +106,8 @@ const makeMemoryGuess = id => {
 }
 
 const memoryGameStart = () => {
-    document.getElementById("memoryGameDirections").toggleAttribute("nodisplay");
-    document.getElementById("memoryGameBoard").toggleAttribute("nodisplay");
-    document.getElementById("memoryGameHomeScreen").toggleAttribute("nodisplay");
+    document.getElementById("mgDirections").toggleAttribute("nodisplay");
+    document.getElementById("mgBoard").toggleAttribute("nodisplay");
+    document.getElementById("mgHomeScreen").toggleAttribute("nodisplay");
     cpuTurnInMemoryGame();
 }

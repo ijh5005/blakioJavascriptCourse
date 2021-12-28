@@ -461,32 +461,39 @@ input[type=number].smallInput {
 /* ------------------------------------------------------------------- */
 /* memory game */
 
+#mgGameHome {
+    background-image: url(./assets/memory.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 #memoryTitle {
-    color: var(--lightGrey);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--offWhite);
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 900;
 }
 
-#memoryGameTopLeft {
+#mgTopLeft {
     border-right: 1px solid var(--panelBorderBlue);
     border-bottom: 1px solid var(--panelBorderBlue);
 }
 
-#memoryGameBottomRight {
+#mgBottomRight {
     border-left: 1px solid var(--panelBorderBlue);
     border-top: 1px solid var(--panelBorderBlue);
 }
 
-#memoryStartBtn {
+#mgStartBtn {
     margin-right: 16px;
 }
 
-#memoryStartBtn:hover {
+#mgStartBtn:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#memoryCount {
+#mgCount {
     position: absolute;
     font-size: 2em;
 }
@@ -495,20 +502,26 @@ input[type=number].smallInput {
     background-color: rgb(0 247 190 / 60%);
 }
 
-.memorySquare.playerClick {
+.mgSquare.playerClick {
     background-color: rgb(0 247 190 / 60%);
 }
 
-.memorySquare.cpuClick {
+.mgSquare.cpuClick {
     background-color: rgb(0 76 247 / 60%)
 }
 
-.memorySquare:active {
+.mgSquare:active {
     background-color: rgb(0 247 190 / 20%);
 }
 
 /* ------------------------------------------------------------------- */
 /* tiktactoe */
+
+#TikTacToeHome {
+    background-image: url(./assets/tictactoe.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 #topRow,
 #middleRow,
@@ -564,6 +577,22 @@ input[type=number].smallInput {
 
 #whacAMoleBoard {
     cursor: url(./assets/mallet.cur), grab;
+    position: relative;
+}
+
+#whakAMoleHome{
+    background-image: url(./assets/whackamolehome.png);
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
+
+#whakamoleTitle p {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--offWhite);
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
 .whacAMole.dirt {
@@ -675,6 +704,17 @@ input[type=number].smallInput {
 
 /* ------------------------------------------------------------------- */
 /* crud store */
+
+#pricedItems {
+    background-image: url(./assets/shelf.png);
+    background-repeat: no-repeat;
+    background-size: 100% 87%;
+    background-position: 0px -39px;
+}
+
+.priceText {
+    background-color: rgba(0, 0, 0, 0.3);
+}
 
 #chips,
 #juice,

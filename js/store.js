@@ -56,6 +56,7 @@ const createProducts = () => {
         productDiv.classList.add("fullSize");
         const price = document.createElement("span");
         price.classList.add("redText");
+        price.classList.add("priceText");
         price.innerText = `$${parseFloat(data.priceOfProduct).toFixed(2)}`;
         const product = document.createElement("div");
         product.classList.add("shelfedProduct");
