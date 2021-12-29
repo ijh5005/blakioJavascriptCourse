@@ -1,11 +1,11 @@
 const quoteUrl = "https://breaking-bad-quotes.herokuapp.com/v1/quotes";
 
 const setQuote = quote => {
-    innerText(getById("quoteText"), quote);
+    getById("quoteText").innerText = quote;
 }
 
 const setAuthor = author => {
-    innerText(getById("breakingBadAuthor"), author);
+    getById("breakingBadAuthor").innerText = author;
 }
 
 const getQuote = () => {

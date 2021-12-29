@@ -25,7 +25,3 @@ const getById = id => {
     const ele = document.getElementById(id);
     return ele;
 }
-
-const innerText = (ele, text) => {
-    ele.innerText = text;
-}

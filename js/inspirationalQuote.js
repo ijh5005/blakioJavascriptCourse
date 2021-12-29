@@ -12,14 +12,14 @@ const setQuoteDate = () => {
     const day = split[0];
     const month = split[1];
     const dateNumber = split[2];
-    innerText(getById("dailyMemoDay"), `${month} ${day}`);
-    innerText(getById("dailyMemoDateNumber"), dateNumber);
+    getById("dailyMemoDay").innerText = `${month} ${day}`;
+    getById("dailyMemoDateNumber").innerText = dateNumber;
 }
 
 const getInspirationalQuote = () => {
     fetch(inspirationalQuoteUrl).then(response => response.json()).then(data => {
         const randonIndex = getRandomQuoteIndex(data.length);
-        innerText(getById("inspirationalQuote", data[randonIndex].text));
+        getById("inspirationalQuote").innerText = data[randonIndex].text;
     }).catch(err => {
         console.error(err);
     });
