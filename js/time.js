@@ -42,10 +42,10 @@ const getTimeOfDay = () => {
 }
 
 const setHTML = (hour, minute, second, timeOfDay) => {
-    document.getElementById("hr").innerHTML = hour;
-    document.getElementById("min").innerHTML = minute;
-    document.getElementById("sec").innerHTML = second;
-    document.getElementById("dayTime").innerHTML = timeOfDay;
+    getById("hr").innerHTML = hour;
+    getById("min").innerHTML = minute;
+    getById("sec").innerHTML = second;
+    getById("dayTime").innerHTML = timeOfDay;
 }
 
 const setDate = () => {

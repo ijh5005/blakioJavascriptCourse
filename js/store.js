@@ -4,15 +4,15 @@ const allProducts = [];
 // https://crudcrud.com/
 
 const showElementById = id => {
-    document.getElementById(id).classList.remove("displayNone");
+    getById(id).classList.remove("displayNone");
 }
 
 const hideElementById = id => {
-    document.getElementById(id).classList.add("displayNone");
+    getById(id).classList.add("displayNone");
 }
 
 const setHelpText = text => {
-    document.getElementById("productHelpText").innerText = text;
+    getById("productHelpText").innerText = text;
 }
 
 const createStoreItem = () => {
@@ -26,12 +26,12 @@ const choiceProduct = product => {
     hideElementById("itemSelection");
     setHelpText("Set Price of Product");
     showElementById("setPriceContainer");
-    document.getElementById("selectedProduct").style.backgroundImage = `url(./assets/${selectedProduct}.png)`
+    getById("selectedProduct").style.backgroundImage = `url(./assets/${selectedProduct}.png)`
 }
 
 const addItem = () => {
-    const priceOfProduct = document.getElementById("selectedPrice").value;
-    document.getElementById("selectedPrice").value = "";
+    const priceOfProduct = getById("selectedPrice").value;
+    getById("selectedPrice").value = "";
     console.log(`item to add ${selectedProduct} at $${priceOfProduct}`);
     setHelpText("");
     hideElementById("setPriceContainer");
@@ -45,7 +45,7 @@ const addItem = () => {
 }
 
 const createProducts = () => {
-    document.getElementById("pricedItems").innerHTML = "";
+    getById("pricedItems").innerHTML = "";
     allProducts.forEach(data => {
         const div = document.createElement("div");
         div.classList.add("quarterWidth");
@@ -78,7 +78,7 @@ const createProducts = () => {
         div.appendChild(update);
         div.appendChild(edit);
     
-        document.getElementById("pricedItems").appendChild(div);
+        getById("pricedItems").appendChild(div);
     });
 }
 
@@ -88,7 +88,7 @@ const addToShelf = () => {
         setHelpText("Shelf full. Delete items to add more.");
     } else {
         if(allProducts.length === 1){
-            document.getElementById("pricedItems").classList.add("diplayNone");
+            getById("pricedItems").classList.add("diplayNone");
         }
         showElementById("createItemBtn");
     }

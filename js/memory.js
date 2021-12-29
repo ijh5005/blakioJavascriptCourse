@@ -10,14 +10,14 @@ const setMemoryGameHighScore = score => {
         localStorage.setItem("mgHighScore", 0);
         score = localStorage.getItem("mgHighScore", 0);
     }
-    document.getElementById("mgHighScore").innerText = score;
+    getById("mgHighScore").innerText = score;
     localStorage.setItem("mgHighScore", score);
 }
 
 setMemoryGameHighScore(localStorage.getItem("mgHighScore"));
 
 const showMGDirections = () => {
-    document.getElementById("mgDirections").toggleAttribute("nodisplay");
+    toggleAttribute(getById("mgDirections"), "nodisplay");
 }
 
 const getRandomSquare = () => {
@@ -26,9 +26,9 @@ const getRandomSquare = () => {
 }
 
 const highlighSquare = id => {
-    document.getElementById(id).classList.add("cpuClick");
+    getById(id).classList.add("cpuClick");
     setTimeout(() => {
-        document.getElementById(id).classList.remove("cpuClick");
+        getById(id).classList.remove("cpuClick");
     }, 500);
 }
 
@@ -47,15 +47,15 @@ const playSequence = () => {
 
 const addHighlight = id => {
     if(!mgCpuTurn){
-        const classlist = document.getElementById(id).classList;
+        const classlist = getById(id).classList;
         if(!classlist.contains("playerClick")){
-            document.getElementById(id).classList.add("playerClick");
+            getById(id).classList.add("playerClick");
         }
     }
 }
 
 const removeHighlight = id => {
-    document.getElementById(id).classList.remove("playerClick");
+    getById(id).classList.remove("playerClick");
 }
 
 const cpuTurnInMemoryGame = () => {
@@ -69,15 +69,15 @@ const youLoseInMemoryGame = () => {
     cpuSequence.length = 0;
     userSequence.length = 0;
     mgCpuTurn = true;
-    document.getElementById("mgCount").innerText = 0;
-    document.getElementById("mgBoard").toggleAttribute("nodisplay");
-    document.getElementById("mgHomeScreen").toggleAttribute("nodisplay");
+    getById("mgCount").innerText = 0;
+    toggleAttribute(getById("mgBoard"), "nodisplay");
+    toggleAttribute(getById("mgHomeScreen"), "nodisplay");
 }
 
 const increaseMemoryCount = () => {
-    const count = document.getElementById("mgCount").innerText;
+    const count = getById("mgCount").innerText;
     const newCount = parseInt(count) + 1;
-    document.getElementById("mgCount").innerText = newCount;
+    getById("mgCount").innerText = newCount;
 
     const highScore = localStorage.getItem("mgHighScore");
     if(newCount > parseInt(highScore)){
@@ -106,8 +106,8 @@ const makeMemoryGuess = id => {
 }
 
 const memoryGameStart = () => {
-    document.getElementById("mgDirections").toggleAttribute("nodisplay");
-    document.getElementById("mgBoard").toggleAttribute("nodisplay");
-    document.getElementById("mgHomeScreen").toggleAttribute("nodisplay");
+    toggleAttribute(getById("mgDirections"), "nodisplay");
+    toggleAttribute(getById("mgBoard"), "nodisplay");
+    toggleAttribute(getById("mgHomeScreen"), "nodisplay");
     cpuTurnInMemoryGame();
 }

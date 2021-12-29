@@ -16,14 +16,14 @@ let passwordLength = 10;
 
 // set the password checkbox options
 const setPasswordOptions = () => {
-    document.getElementById("upperCaseLetters").innerHTML = upperCaseLetters;
-    document.getElementById("lowerCaseLetters").innerHTML = lowerCaseLetters;
-    document.getElementById("passwordNumbers").innerHTML = passwordNumbers;
-    document.getElementById("specialCharacters").innerHTML = specialCharacters;
+    getById("upperCaseLetters").innerHTML = upperCaseLetters;
+    getById("lowerCaseLetters").innerHTML = lowerCaseLetters;
+    getById("passwordNumbers").innerHTML = passwordNumbers;
+    getById("specialCharacters").innerHTML = specialCharacters;
 }
 
 const checkUpperCaseLetters = () => {
-    const upperCheckbox = document.getElementById("upperCaseLettersCheckbox");
+    const upperCheckbox = getById("upperCaseLettersCheckbox");
     const upperIsChecked = upperCheckbox.checked;
     if (upperIsChecked) {
         acceptableCharacter += upperCaseLetters;
@@ -31,7 +31,7 @@ const checkUpperCaseLetters = () => {
 }
 
 const checkLowerCaseLetters = () => {
-    const lowerCheckbox = document.getElementById("lowerCaseLettersCheckbox");
+    const lowerCheckbox = getById("lowerCaseLettersCheckbox");
     const lowerIsChecked = lowerCheckbox.checked;
     if (lowerIsChecked) {
         acceptableCharacter += lowerCaseLetters;
@@ -39,7 +39,7 @@ const checkLowerCaseLetters = () => {
 }
 
 const checkNumbers = () => {
-    const numberCheckbox = document.getElementById("passwordNumbersCheckbox");
+    const numberCheckbox = getById("passwordNumbersCheckbox");
     const numberIsChecked = numberCheckbox.checked;
     if (numberIsChecked) {
         acceptableCharacter += passwordNumbers;
@@ -47,7 +47,7 @@ const checkNumbers = () => {
 }
 
 const checkSpecialCharacters = () => {
-    const specialCharactersCheckbox = document.getElementById("specialCharactersCheckbox");
+    const specialCharactersCheckbox = getById("specialCharactersCheckbox");
     const specialCharactersIsChecked = specialCharactersCheckbox.checked;
     if (specialCharactersIsChecked) {
         acceptableCharacter += specialCharacters;
@@ -76,16 +76,16 @@ const generatePassword = () => {
         const randomCharacter = acceptableCharacter[index];
         randomPassword += randomCharacter;
     }
-    document.getElementById("passwordBtn").innerText = randomPassword;
+    getById("passwordBtn").innerText = randomPassword;
 }
 
 const copyPassword = () => {
-    const text = document.getElementById("passwordBtn").innerText;
+    const text = getById("passwordBtn").innerText;
     navigator.clipboard.writeText(text).then(function () {
-        const temp = document.getElementById("passwordBtn").innerText;
-        document.getElementById("passwordBtn").innerText = "Copied!";
+        const temp = getById("passwordBtn").innerText;
+        getById("passwordBtn").innerText = "Copied!";
         setTimeout(() => {
-            document.getElementById("passwordBtn").innerText = temp;
+            getById("passwordBtn").innerText = temp;
         }, 1000)
     }, function (err) {
         console.error('Async: Could not copy text: ', err);

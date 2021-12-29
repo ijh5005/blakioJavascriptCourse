@@ -57,7 +57,7 @@ const setColorToWord = () => {
         // get div with text
         const div = getColorBox(text);
         // add div to HTML
-        document.getElementById("colorPsychology").appendChild(div);
+        getById("colorPsychology").appendChild(div);
     }
 }
 

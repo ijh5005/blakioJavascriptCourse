@@ -7,13 +7,13 @@ const setTip = (cost, tip, numberOfPeople) => {
     tip = parseFloat(tip);
     numberOfPeople = parseFloat(numberOfPeople);
     const payPerPerson = (cost + cost * (tip / 100)) / numberOfPeople;
-    document.getElementById("pay").innerText = "$" + payPerPerson.toFixed(2);
+    getById("pay").innerText = "$" + payPerPerson.toFixed(2);
 }
 
 const calculateTip = () => {
-    let cost = document.getElementById("cost").value;
-    let tip = document.getElementById("tip").value;
-    let numberOfPeople = document.getElementById("numberOfPeople").value;
+    let cost = getById("cost").value;
+    let tip = getById("tip").value;
+    let numberOfPeople = getById("numberOfPeople").value;
     if(allFieldsEntered(cost, tip, numberOfPeople)){
         setTip(cost, tip, numberOfPeople);
     }

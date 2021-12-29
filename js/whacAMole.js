@@ -46,8 +46,8 @@ const changeMolePosition = () => {
 }
 
 const increamentWhacCount = () => {
-    count = document.getElementById("whacAMoleCount").innerText;
-    document.getElementById("whacAMoleCount").innerText = parseInt(count) + 1;
+    count = getById("whacAMoleCount").innerText;
+    getById("whacAMoleCount").innerText = parseInt(count) + 1;
 }
 
 const whacMole = className => {
@@ -66,49 +66,62 @@ const randomizeMole = () => {
 }
 
 const whacAMoleMenuStart = () => {
-    document.getElementById("whakAMoleHome").toggleAttribute("nodisplay");
-    const direction = document.getElementById("whacAMoleDirections");
-    direction.toggleAttribute("nodisplay");
-    direction.innerText = whakAMoleText.intro;
+    const whakAMoleHome = getById("whakAMoleHome");
+    toggleAttribute(whakAMoleHome, "nodisplay");
+
+    const whacAMoleDirections = getById("whacAMoleDirections");
+    toggleAttribute(whacAMoleDirections, "nodisplay");
+
+    whacAMoleDirections.innerText = whakAMoleText.intro;
 }
 
 const resetwhacAMoleGame = () => {
-    const directions = document.getElementById("whacAMoleDirections");
-    directions.toggleAttribute("nodisplay");
-    directions.innerText = whakAMoleText.endText.replace("X", count);
-    directions.toggleAttribute("opacity");
+    const whacAMoleDirections = getById("whacAMoleDirections");
+
+    toggleAttribute(whacAMoleDirections, "nodisplay");
+    toggleAttribute(whacAMoleDirections, "opacity");
+
+    whacAMoleDirections.innerText = whakAMoleText.endText.replace("X", count);
+
     clearInterval(random);
     clearInterval(check);
     count = 0;
     canClick = false;
     setTimeout(() => {
-        directions.toggleAttribute("opacity");
-        document.getElementById("whacAMoleBoard").toggleAttribute("nodisplay");
-        document.getElementById("whacAMoleDirections").toggleAttribute("nodisplay");
-        document.getElementById("whakAMoleHome").toggleAttribute("nodisplay");
+        toggleAttribute(whacAMoleDirections, "opacity");
+        toggleAttribute(whacAMoleDirections, "nodisplay");
+
+        const whacAMoleBoard = getById("whacAMoleBoard");
+        toggleAttribute(whacAMoleBoard, "nodisplay");
+
+        const whakAMoleHome = getById("whakAMoleHome");
+        toggleAttribute(whakAMoleHome, "nodisplay");
+
         canClick = true;
     }, 4000);
 }
 
 const startTimer = () => {
-    document.getElementById("whacAMoleCountDown").innerText = maxSeconds;
+    getById("whacAMoleCountDown").innerText = maxSeconds;
     check = setInterval(() => {
-        const seconds = parseInt(document.getElementById("whacAMoleCountDown").innerText);
+        const seconds = parseInt(getById("whacAMoleCountDown").innerText);
         const newCount = seconds - 1;
         if(!newCount){
             resetwhacAMoleGame();
         } else {
-            document.getElementById("whacAMoleCountDown").innerText = newCount;
+            getById("whacAMoleCountDown").innerText = newCount;
         }
     }, 1000);
 }
 
 const whacAMoleStart = () => {
     if(canClick){
-        document.getElementById("whacAMoleDirections").toggleAttribute("nodisplay");
-        document.getElementById("whacAMoleBoard").toggleAttribute("nodisplay");
+        const whacAMoleDirections = getById("whacAMoleDirections");toggleAttribute(whacAMoleDirections, "nodisplay");
+
+        const whacAMoleBoard = getById("whacAMoleBoard");toggleAttribute(whacAMoleBoard, "nodisplay");
+
         randomizeMole();
         startTimer();
-        document.getElementById("whacAMoleCount").innerText = count;
+        getById("whacAMoleCount").innerText = count;
     }
 }

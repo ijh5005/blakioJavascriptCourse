@@ -2,15 +2,15 @@ let breatheCount = 0;
 let breathingRounds = 4;
 
 const resetMeditationApp = () => {
-    document.getElementById("breatheOut").classList.add("displayNone");
-    document.getElementById("breatheIn").classList.add("displayNone");
-    document.getElementById("meditationDirections").classList.add("displayNone");
-    document.getElementById("meditationStart").classList.remove("displayNone");
+    getById("breatheOut").classList.add("displayNone");
+    getById("breatheIn").classList.add("displayNone");
+    getById("meditationDirections").classList.add("displayNone");
+    getById("meditationStart").classList.remove("displayNone");
 }
 
 const showBreatheOut = () => {
-    document.getElementById("breatheOut").classList.remove("displayNone");
-    document.getElementById("breatheIn").classList.add("displayNone");
+    getById("breatheOut").classList.remove("displayNone");
+    getById("breatheIn").classList.add("displayNone");
     setTimeout(() => {
         if(breatheCount === breathingRounds){
             resetMeditationApp();
@@ -22,8 +22,8 @@ const showBreatheOut = () => {
 
 const showBreatheIn = () => {
     breatheCount++;
-    document.getElementById("breatheIn").classList.remove("displayNone");
-    document.getElementById("breatheOut").classList.add("displayNone");
+    getById("breatheIn").classList.remove("displayNone");
+    getById("breatheOut").classList.add("displayNone");
     setTimeout(() => {
         showBreatheOut();
     }, 4000);
@@ -31,13 +31,13 @@ const showBreatheIn = () => {
 
 const meditationStart = () => {
     breatheCount = 0;
-    document.getElementById("meditationDirections").classList.add("displayNone");
+    getById("meditationDirections").classList.add("displayNone");
     showBreatheIn();
 }
 
 const meditationStartBtn = () => {
-    document.getElementById("meditationDirections").classList.remove("displayNone");
-    document.getElementById("meditationStart").classList.add("displayNone");
+    getById("meditationDirections").classList.remove("displayNone");
+    getById("meditationStart").classList.add("displayNone");
 }
 
 // improvements

@@ -7,17 +7,17 @@ const squaresWithO = [];
 let openSquares = [];
 
 const hasX = id => {
-    return document.getElementById(id).classList.contains("x");
+    return getById(id).classList.contains("x");
 }
 
 const hasO = id => {
-    return document.getElementById(id).classList.contains("o");
+    return getById(id).classList.contains("o");
 }
 
 const hasXorO = id => {
     return (
-        document.getElementById(id).classList.contains("x") ||
-        document.getElementById(id).classList.contains("o")
+        getById(id).classList.contains("x") ||
+        getById(id).classList.contains("o")
     );
 }
 
@@ -122,8 +122,12 @@ const resetGame = () => {
     squaresWithO.length = 0;
     openSquares.length = 0;
     isCpuTurn = false;
-    document.getElementById("tikTacToeHome").toggleAttribute("nodisplay");
-    document.getElementById("tikTacToeBoard").toggleAttribute("nodisplay");
+
+    const tikTacToeHome = getById("tikTacToeHome");
+    toggleAttribute(tikTacToeHome, "nodisplay");
+
+    const tikTacToeBoard = getById("tikTacToeBoard");
+    toggleAttribute(tikTacToeBoard, "nodisplay");
 
     const allSquares = document.getElementsByClassName("tictactoe");
     for(let i = 0; i < allSquares.length; i++){
@@ -135,7 +139,7 @@ const resetGame = () => {
 const makeCpuSelection = square => {
     isCpuTurn = false;
     squaresWithO.push(square);
-    document.getElementById(square).classList.add("o");
+    getById(square).classList.add("o");
 }
 
 const populateOpenSquares = () => {
@@ -187,7 +191,7 @@ const squareIsOpen = id => {
 
 const selectSquare = id => {
     if(!isCpuTurn && squareIsOpen(id)){
-        document.getElementById(id).classList.add("x");
+        getById(id).classList.add("x");
         squaresWithX.push(id);
         if(hasXScored()){
             playerScore("ply");
@@ -205,11 +209,17 @@ const selectSquare = id => {
 }
 
 const showTikTacToeDirections = () => {
-    document.getElementById("tikTacToeGameDirections").toggleAttribute("nodisplay");
-    document.getElementById("tikTacToeHome").toggleAttribute("nodisplay");
+    const tikTacToeGameDirections = getById("tikTacToeGameDirections");
+    toggleAttribute(tikTacToeGameDirections, "nodisplay");
+
+    const tikTacToeHome = getById("tikTacToeHome");
+    toggleAttribute(tikTacToeHome, "nodisplay");
 }
 
 const tikTacToeGameStart = () => {
-    document.getElementById("tikTacToeGameDirections").toggleAttribute("nodisplay");
-    document.getElementById("tikTacToeBoard").toggleAttribute("nodisplay");
+    const tikTacToeGameDirections = getById("tikTacToeGameDirections");
+    toggleAttribute(tikTacToeGameDirections, "nodisplay");
+
+    const tikTacToeBoard = getById("tikTacToeBoard");
+    toggleAttribute(tikTacToeBoard, "nodisplay");
 }

@@ -9,7 +9,7 @@ const getNewJoke = () => {
       })
         .then(response => response.json())
         .then(data => {
-            document.getElementById("jokeText").innerText = data.joke;
+            getById("jokeText").innerText = data.joke;
         })
         .catch(err => console.error(err));
 }
