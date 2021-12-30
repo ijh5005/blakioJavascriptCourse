@@ -3,17 +3,12 @@
     --offWhite: #e7e7e7;
     --lightRed: #F34338;
     --lightGrey: #919191;
-    --font: 'Readex Pro', sans-serif;
-    --blackbg: url(./assets/bg.png);
+    --font: 'Roboto', sans-serif;
     --me: url(./assets/me.png);
-    --grey: #1E1E1E;
-    --blue: url(./assets/bluebg.png);
-    --blueBG: url(./assets/blue.png);
-    --greyBG: url(./assets/grey.png);
     --black: #000;
-    --panelBorderGrey: #141414;
     --panelBorderBlue: #000418;
     --portfolioLeftBGColor: #ECECEE;
+    --textColor: #1F1F21;
 }
 
 /* ------------------------------------------------------------------- */
@@ -23,16 +18,16 @@
     height: 100vh;
     width: 39vw;
     background-color: var(--portfolioLeftBGColor);
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font);
     justify-content: space-between;
-    color: #1F1F21
+    color: var(--textColor);
 }
 
 #portfolioRight {
     height: 100vh;
     width: 61vw;
-    color: #1F1F21;
-    font-family: 'Roboto', sans-serif;
+    color: var(--textColor);
+    font-family: var(--font);
 }
 
 #rightSideText {
@@ -50,7 +45,7 @@
 #userPic {
     height: 322px;
     width: 246px;
-    background-color: #000;
+    background-color: var(--black);
     margin: 28px;
     background-image: var(--me);
     background-size: auto 100%;
@@ -89,7 +84,7 @@
     font-size: 34px;
     padding: 14px 30px;
     border-top: 1px solid #cdcdcd;
-    color: #1F1F21;
+    color: var(--textColor);
     font-weight: 600;
 }
 
@@ -106,7 +101,6 @@
 
 body {
     height: 100vh;
-    font-family: var(--font);
     color: var(--textWhite);
     display: flex;
     overflow: hidden;
@@ -119,7 +113,6 @@ body {
 
 #dashboard {
     overflow-y: scroll;
-    background: rgba(255,255,255,0.05);
     backdrop-filter: blur(5px);
     position: absolute;
     right: 0;
@@ -129,8 +122,8 @@ body {
     transition: 1s;
 }
 
-[offscreen]#dashboard {
-    right: -24em;
+[offscreen] {
+    right: -24em !important;
 }
 
 .panelSm {
@@ -183,11 +176,6 @@ body {
 .blue {
     background: rgb(3,11,33);
     background: linear-gradient(180deg, rgba(3,11,33,1) 0%, rgba(30,36,42,1) 48%, rgba(47,53,68,1) 100%);
-    /* border: 1px solid var(--panelBorderBlue); */
-
-    /* background-image: var(--blueBG);
-    background-size: cover;
-    background-color: transparent; */
 }
 
 .directionsSm {
