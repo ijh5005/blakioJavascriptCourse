@@ -1,7 +1,13 @@
 let selectedProduct = "";
-const allProducts = [];
+let allProducts = [];
 
 // https://crudcrud.com/
+
+
+const getCrudUrl = () => {
+    const crudId = document.querySelector("#storeHeader input");
+    return `https://crudcrud.com/api/${crudId.value}`;
+}
 
 const showElementById = id => {
     getById(id).classList.remove("displayNone");
@@ -29,24 +35,53 @@ const choiceProduct = product => {
     getById("selectedProduct").style.backgroundImage = `url(./assets/${selectedProduct}.png)`
 }
 
+const populateShelf = () => {
+    // fetch(`${getCrudUrl()}/store`, {
+    //     method: "GET"
+    // }).then(data => {
+    //     data.json().then(data => {
+    //         allProducts = data;
+    //         shelfStatus();
+    //         populateHTML(data);
+    //     });
+    // })
+}
+
+const addToShelf = body => {
+    fetch(`${getCrudUrl()}/store`, {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(data => {
+        populateShelf();
+    }).catch(err => console.log(err));
+}
+
 const addItem = () => {
     const priceOfProduct = getById("selectedPrice").value;
     getById("selectedPrice").value = "";
     console.log(`item to add ${selectedProduct} at $${priceOfProduct}`);
     setHelpText("");
     hideElementById("setPriceContainer");
-
-    // after request comes back
-    allProducts.push({
+    const body = {
         selectedProduct,
         priceOfProduct
-    })
-    addToShelf();
+    }
+    addToShelf(body);
 }
 
-const createProducts = () => {
+const deleteFromShelf = id => {
+    fetch(`${getCrudUrl()}/${id}`).then(data => {
+        populateShelf();
+    }).catch(err => console.log(err)); 
+}
+
+const populateHTML = data => {
     getById("pricedItems").innerHTML = "";
-    allProducts.forEach(data => {
+    const products = data.splice(0, 4);
+    products.forEach(data => {
         const div = document.createElement("div");
         div.classList.add("quarterWidth");
         div.classList.add("flexCol");
@@ -70,29 +105,31 @@ const createProducts = () => {
         update.setAttribute("data-price", data.priceOfProduct);
         update.innerText = "Update";
     
-        const edit = document.createElement("div");
-        edit.classList.add("btn");
-        edit.innerText = "Delete";
+        const deleteBtn = document.createElement("div");
+        deleteBtn.classList.add("btn");
+        deleteBtn.innerText = "Delete";
+        deleteBtn.onclick = deleteFromShelf(data._id);
     
         div.appendChild(productDiv);
         div.appendChild(update);
-        div.appendChild(edit);
+        div.appendChild(deleteBtn);
     
         getById("pricedItems").appendChild(div);
     });
 }
 
-const addToShelf = () => {
-    createProducts();
-    if(allProducts.length === 4){
+const shelfStatus = () => {
+    if(allProducts.length >= 4){
         setHelpText("Shelf full. Delete items to add more.");
+        hideElementById("createItemBtn");
     } else {
         if(allProducts.length === 1){
             getById("pricedItems").classList.add("diplayNone");
         }
-        showElementById("createItemBtn");
     }
 }
+
+populateShelf();
 
 // improvements
 // if an item is already on the shelf prevent the user from adding it again at a different price

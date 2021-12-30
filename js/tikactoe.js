@@ -208,17 +208,16 @@ const selectSquare = id => {
     }
 }
 
-const showTikTacToeDirections = () => {
-    const tikTacToeGameDirections = getById("tikTacToeGameDirections");
-    toggleAttribute(tikTacToeGameDirections, "nodisplay");
-
+const showDirections = () => {
+    const gameDirections = getById("gameDirections");
+    toggleAttribute(gameDirections, "nodisplay");
     const tikTacToeHome = getById("tikTacToeHome");
     toggleAttribute(tikTacToeHome, "nodisplay");
 }
 
-const tikTacToeGameStart = () => {
-    const tikTacToeGameDirections = getById("tikTacToeGameDirections");
-    toggleAttribute(tikTacToeGameDirections, "nodisplay");
+const startGame = () => {
+    const gameDirections = getById("gameDirections");
+    toggleAttribute(gameDirections, "nodisplay");
 
     const tikTacToeBoard = getById("tikTacToeBoard");
     toggleAttribute(tikTacToeBoard, "nodisplay");

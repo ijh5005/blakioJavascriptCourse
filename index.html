@@ -210,7 +210,7 @@
                             <div
                                 id="mgStartBtn"
                                 class="btn"
-                                onclick="showTikTacToeDirections()">START</div>
+                                onclick="showDirections()">START</div>
                         </div>
                     </div>
                     <div class="topBottomHalf">
@@ -222,8 +222,8 @@
             </div>
             <div
                 nodisplay
-                onclick="tikTacToeGameStart()"
-                id="tikTacToeGameDirections"
+                onclick="startGame()"
+                id="gameDirections"
                 class="directionsSm flex">
             First to score three in a row wins. Click to play!</div>
         </div>
@@ -334,7 +334,10 @@
         <!-- crud store -->
         <div class="panelLarge grey">
             <div class="fullSize">
-                <p class="panelHeader">Crud Store</p>
+                <div id="storeHeader" class="flex">
+                    <p class="panelHeader">Crud Store</p>
+                    <input placeholder="crud id">
+                </div>
                 <div class="flexCol sizeWithHeader">
                     <div class="topBottomHalf flex">
                         <div class="rightLeftHalf flexCol">

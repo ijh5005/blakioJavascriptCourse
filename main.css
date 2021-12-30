@@ -716,6 +716,15 @@ input[type=number].smallInput {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+#storeHeader {
+    justify-content: space-between;
+}
+
+#storeHeader input {
+    margin: 12px 14px 0 0;
+    width: 200px;
+}
+
 #chips,
 #juice,
 #sandwich,
