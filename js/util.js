@@ -10,3 +10,8 @@ const toggleAttribute = (ele, attr, value="") => {
         ele.setAttribute(attr, value);
     }
 }
+
+const getById = id => {
+    const ele = document.getElementById(id);
+    return ele;
+}
