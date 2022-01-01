@@ -15,3 +15,8 @@ const getById = id => {
     const ele = document.getElementById(id);
     return ele;
 }
+
+const getRandomCharFromString = string => {
+    const index = Math.floor(Math.random() * string.length);
+    return string[index];
+}
