@@ -20,3 +20,8 @@ const getRandomCharFromString = string => {
     const index = Math.floor(Math.random() * string.length);
     return string[index];
 }
+
+const getRandomIndexFromArray = array => {
+    const index = Math.floor(Math.random() * array.length);
+    return array[index];
+}
