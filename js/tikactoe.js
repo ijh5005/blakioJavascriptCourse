@@ -1,11 +1,5 @@
 let isCpuTurn = false;
 
-const squaresWithX = [];
-
-const squaresWithO = [];
-
-let openSquares = [];
-
 const hasX = id => {
     return getById(id).classList.contains("x");
 }
@@ -32,29 +26,37 @@ const getScoringId = array => {
 
 const getXScoringChances = () => {
     const combinations = [
-        [hasX(1), hasX(2), !hasXorO(3), 3], // horizontal [x=1, x=2, ox!=3]
         [!hasXorO(1), hasX(2), hasX(3), 1], // horizontal [ox!=1, x=2, x=3]
+        [hasX(1), !hasXorO(2), hasX(3), 2], // horizontal [x=1, ox!=2, x=3]
+        [hasX(1), hasX(2), !hasXorO(3), 3], // horizontal [x=1, x=2, ox!=3]
         
-        [hasX(4), hasX(5), !hasXorO(6), 6], // horizontal [x=4, x=5, ox!=6]
         [!hasXorO(4), hasX(5), hasX(6), 4], // horizontal [ox!=4, x=5, x=6]
+        [hasX(4), !hasXorO(5), hasX(6), 5], // horizontal [x=4, ox!=5, x=6]
+        [hasX(4), hasX(5), !hasXorO(6), 6], // horizontal [x=4, x=5, ox!=6]
     
-        [hasX(7), hasX(8), !hasXorO(9), 9], // horizontal [x=7, x=8, ox!=9]
         [!hasXorO(7), hasX(8), hasX(9), 7], // horizontal [ox!=7, x=8, x=9]
+        [hasX(7), !hasXorO(8), hasX(9), 8], // horizontal [x=7, ox!=8, x=9]
+        [hasX(7), hasX(8), !hasXorO(9), 9], // horizontal [x=7, x=8, ox!=9]
     
-        [hasX(1), hasX(4), !hasXorO(7), 7], // vertical [x=1, x=4, ox!=7]
         [!hasXorO(1), hasX(4), hasX(7), 1], // vertical [ox!=1, x=4, x=7]
+        [hasX(1), !hasXorO(4), hasX(7), 4], // vertical [x=1, ox!=4, x=7]
+        [hasX(1), hasX(4), !hasXorO(7), 7], // vertical [x=1, x=4, ox!=7]
     
-        [hasX(2), hasX(5), !hasXorO(8), 8], // vertical [x=2, x=5, ox!=8]
         [!hasXorO(2), hasX(5), hasX(8), 2], // vertical [ox!=2, x=5, x=8]
+        [hasX(2), !hasXorO(5), hasX(8), 5], // vertical [x=2, ox!=5, x=8]
+        [hasX(2), hasX(5), !hasXorO(8), 8], // vertical [x=2, x=5, ox!=8]
     
-        [hasX(3), hasX(6), !hasXorO(9), 9], // vertical [x=3, x=6, ox!=9]
         [!hasXorO(3), hasX(6), hasX(9), 3], // vertical [ox!=3, x=6, x=9]
+        [hasX(3), !hasXorO(6), hasX(9), 6], // vertical [x=3, ox!=6, x=9]
+        [hasX(3), hasX(6), !hasXorO(9), 9], // vertical [x=3, x=6, ox!=9]
     
-        [hasX(1), hasX(5), !hasXorO(9), 9], // diagnal [x=1, x=5, ox!=9]
         [!hasXorO(1), hasX(5), hasX(9), 1], // diagnal [ox!=1, x=5, x=9]
+        [hasX(1), !hasXorO(5), hasX(9), 5], // diagnal [x=1, ox!=5, x=9]
+        [hasX(1), hasX(5), !hasXorO(9), 9], // diagnal [x=1, x=5, ox!=9]
     
-        [hasX(3), hasX(5), !hasXorO(7), 7], // diagnal [x=3, x=5, ox!=7]
         [!hasXorO(3), hasX(5), hasX(7), 3], // diagnal [ox!=3, x=5, x=7]
+        [hasX(3), !hasXorO(5), hasX(7), 5], // diagnal [x=3, ox!=5, x=7]
+        [hasX(3), hasX(5), !hasXorO(7), 7], // diagnal [x=3, x=5, ox!=7]
     ];
     return combinations;
 }
@@ -81,29 +83,37 @@ const hasXScored = () => {
 
 const getOScoringChances = () => {
     const combinations = [
-        [hasO(1), hasO(2), !hasXorO(3), 3], // horizontal [x=1, x=2, ox!=3]
         [!hasXorO(1), hasO(2), hasO(3), 1], // horizontal [ox!=1, x=2, x=3]
+        [hasO(1), !hasXorO(2), hasO(3), 2], // horizontal [x=1, ox!=2, x=3]
+        [hasO(1), hasO(2), !hasXorO(3), 3], // horizontal [x=1, x=2, ox!=3]
         
-        [hasO(4), hasO(5), !hasXorO(6), 6], // horizontal [x=4, x=5, ox!=6]
         [!hasXorO(4), hasO(5), hasO(6), 4], // horizontal [ox!=4, x=5, x=6]
+        [hasO(4), !hasXorO(5), hasO(6), 5], // horizontal [x=4, ox!=5, x=6]
+        [hasO(4), hasO(5), !hasXorO(6), 6], // horizontal [x=4, x=5, ox!=6]
     
-        [hasO(7), hasO(8), !hasXorO(9), 9], // horizontal [x=7, x=8, ox!=9]
         [!hasXorO(7), hasO(8), hasO(9), 7], // horizontal [ox!=7, x=8, x=9]
+        [hasO(7), !hasXorO(8), hasO(9), 8], // horizontal [x=7, ox!=8, x=9]
+        [hasO(7), hasO(8), !hasXorO(9), 9], // horizontal [x=7, x=8, ox!=9]
     
-        [hasO(1), hasO(4), !hasXorO(7), 7], // vertical [x=1, x=4, ox!=7]
         [!hasXorO(1), hasO(4), hasO(7), 1], // vertical [ox!=1, x=4, x=7]
+        [hasO(1), !hasXorO(4), hasO(7), 4], // vertical [x=1, ox!=4, x=7]
+        [hasO(1), hasO(4), !hasXorO(7), 7], // vertical [x=1, x=4, ox!=7]
     
-        [hasO(2), hasO(5), !hasXorO(8), 8], // vertical [x=2, x=5, ox!=8]
         [!hasXorO(2), hasO(5), hasO(8), 2], // vertical [ox!=2, x=5, x=8]
+        [hasO(2), !hasXorO(5), hasO(8), 5], // vertical [x=2, ox!=5, x=8]
+        [hasO(2), hasO(5), !hasXorO(8), 8], // vertical [x=2, x=5, ox!=8]
     
-        [hasO(3), hasO(6), !hasXorO(9), 9], // vertical [x=3, x=6, ox!=9]
         [!hasXorO(3), hasO(6), hasO(9), 3], // vertical [ox!=3, x=6, x=9]
+        [hasO(3), !hasXorO(6), hasO(9), 6], // vertical [x=3, ox!=6, x=9]
+        [hasO(3), hasO(6), !hasXorO(9), 9], // vertical [x=3, x=6, ox!=9]
     
-        [hasO(1), hasO(5), !hasXorO(9), 9], // diagnal [x=1, x=5, ox!=9]
         [!hasXorO(1), hasO(5), hasO(9), 1], // diagnal [ox!=1, x=5, x=9]
+        [hasO(1), !hasXorO(5), hasO(9), 5], // diagnal [x=1, ox!=5, x=9]
+        [hasO(1), hasO(5), !hasXorO(9), 9], // diagnal [x=1, x=5, ox!=9]
     
-        [hasO(3), hasO(5), !hasXorO(7), 7], // diagnal [x=3, x=5, ox!=7]
         [!hasXorO(3), hasO(5), hasO(7), 3], // diagnal [ox!=3, x=5, x=7]
+        [hasO(3), !hasXorO(5), hasO(7), 5], // diagnal [x=3, ox!=5, x=7]
+        [hasO(3), hasO(5), !hasXorO(7), 7], // diagnal [x=3, x=5, ox!=7]
     ];
     return combinations;
 }
@@ -117,18 +127,21 @@ const allBoxesTaken = () => {
     return !combinations.includes(false);
 }
 
+const getRandomBox = () => {
+    const openSquares = [];
+    for(let i = 1; i < 10; i++){
+        if(!hasXorO(i)){
+            openSquares.push(i);
+        }
+    }
+    const index = Math.floor(Math.random() * openSquares.length);
+    return openSquares[index];
+}
+
 const resetGame = () => {
-    squaresWithX.length = 0;
-    squaresWithO.length = 0;
-    openSquares.length = 0;
     isCpuTurn = false;
-
-    const tikTacToeHome = getById("tikTacToeHome");
-    toggleAttribute(tikTacToeHome, "nodisplay");
-
-    const tikTacToeBoard = getById("tikTacToeBoard");
-    toggleAttribute(tikTacToeBoard, "nodisplay");
-
+    toggleAttribute(getById("tikTacToeHome"), "nodisplay");
+    toggleAttribute(getById("tikTacToeBoard"), "nodisplay");
     const allSquares = document.getElementsByClassName("tictactoe");
     for(let i = 0; i < allSquares.length; i++){
         allSquares[i].classList.remove("x");
@@ -138,25 +151,11 @@ const resetGame = () => {
 
 const makeCpuSelection = square => {
     isCpuTurn = false;
-    squaresWithO.push(square);
     getById(square).classList.add("o");
 }
 
-const populateOpenSquares = () => {
-    openSquares = [];
-    const squares = document.getElementsByClassName("tictactoe");
-    for(let i = 0; i < squares.length; i++){
-        const data = squares[i];
-        const isNotFilledWithX = data.classList.contains("x");
-        const isNotFilledWithO = data.classList.contains("o");
-        if(!isNotFilledWithX && !isNotFilledWithO){
-            openSquares.push(data.id);
-        }
-    }
-}
-
 const playerScore = ply => {
-    isCpuTurn = true;
+    isCpuTurn = false;
     setTimeout(() => {
         resetGame();
     }, 2000);
@@ -171,34 +170,19 @@ const makeComputerMove = () => {
     } else if(plyScoreId){
         makeCpuSelection(`${plyScoreId}`);
     } else {
-        populateOpenSquares();
-        const randonIndex = Math.floor(Math.random() * openSquares.length);
-        makeCpuSelection(openSquares[randonIndex]);
+        makeCpuSelection(getRandomBox());
     }
-    if(allBoxesTaken()){
-        setTimeout(() => {
-            resetGame();
-        }, 4000);
-    }
-}
-
-const squareIsOpen = id => {
-    const squareHasAnX = squaresWithX.includes(`${id}`);
-    const squareHasAnO = squaresWithO.includes(`${id}`);
-    const squareIsClear = !squareHasAnX && !squareHasAnO;
-    return squareIsClear;
 }
 
 const selectSquare = id => {
-    if(!isCpuTurn && squareIsOpen(id)){
+    if(!isCpuTurn && !hasXorO(id)){
         getById(id).classList.add("x");
-        squaresWithX.push(id);
         if(hasXScored()){
             playerScore("ply");
         } else if(allBoxesTaken()){
             setTimeout(() => {
                 resetGame();
-            }, 4000);
+            }, 2000);
         } else {
             isCpuTurn = true;
             setTimeout(() => {
@@ -218,7 +202,6 @@ const showDirections = () => {
 const startGame = () => {
     const gameDirections = getById("gameDirections");
     toggleAttribute(gameDirections, "nodisplay");
-
     const tikTacToeBoard = getById("tikTacToeBoard");
     toggleAttribute(tikTacToeBoard, "nodisplay");
 }

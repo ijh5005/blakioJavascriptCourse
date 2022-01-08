@@ -25,3 +25,8 @@ const getById = id => {
     const ele = document.getElementById(id);
     return ele;
 }
+
+const getRandomIndexFromArray = array => {
+    const index = Math.floor(Math.random() * array.length);
+    return array[index];
+}

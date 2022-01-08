@@ -1,8 +1,21 @@
-const memorySquareIds = ["mgTopLeft", "mgTopRight", "mgBottomLeft", "mgBottomRight"];
+const memorySquareIds = [
+    "mgTopLeft",
+    "mgTopRight",
+    "mgBottomLeft",
+    "mgBottomRight"
+];
+
 const cpuSequence = [];
-const userSequence = [];
+
 let mgCpuTurn = true;
-let currentGuessIndex = 0;
+
+let clickOrder = 0;
+
+const showMGDirections = () => {
+    toggleAttribute(getById("mgDirections"), "nodisplay");
+}
+
+setMemoryGameHighScore(localStorage.getItem("mgHighScore"));
 
 const setMemoryGameHighScore = score => {
     const mgHighScore = localStorage.getItem("mgHighScore");
@@ -14,15 +27,17 @@ const setMemoryGameHighScore = score => {
     localStorage.setItem("mgHighScore", score);
 }
 
-setMemoryGameHighScore(localStorage.getItem("mgHighScore"));
-
-const showMGDirections = () => {
-    toggleAttribute(getById("mgDirections"), "nodisplay");
+const addHighlight = id => {
+    if(!mgCpuTurn){
+        const classlist = getById(id).classList;
+        if(!classlist.contains("playerClick")){
+            getById(id).classList.add("playerClick");
+        }
+    }
 }
 
-const getRandomSquare = () => {
-    const index = Math.floor(Math.random() * memorySquareIds.length);
-    return memorySquareIds[index];
+const removeHighlight = id => {
+    getById(id).classList.remove("playerClick");
 }
 
 const highlighSquare = id => {
@@ -45,60 +60,44 @@ const playSequence = () => {
     }, elapseTime - 300);
 }
 
-const addHighlight = id => {
-    if(!mgCpuTurn){
-        const classlist = getById(id).classList;
-        if(!classlist.contains("playerClick")){
-            getById(id).classList.add("playerClick");
-        }
-    }
-}
-
-const removeHighlight = id => {
-    getById(id).classList.remove("playerClick");
-}
-
 const cpuTurnInMemoryGame = () => {
-    const randomSquare = getRandomSquare();
+    const randomSquare = getRandomIndexFromArray(memorySquareIds);
     cpuSequence.push(randomSquare);
     playSequence();
 }
 
 const youLoseInMemoryGame = () => {
-    currentGuessIndex = 0;
     cpuSequence.length = 0;
-    userSequence.length = 0;
     mgCpuTurn = true;
     getById("mgCount").innerText = 0;
     toggleAttribute(getById("mgBoard"), "nodisplay");
     toggleAttribute(getById("mgHomeScreen"), "nodisplay");
 }
 
-const increaseMemoryCount = () => {
-    const count = getById("mgCount").innerText;
-    const newCount = parseInt(count) + 1;
-    getById("mgCount").innerText = newCount;
-
+const setHighScore = count => {
     const highScore = localStorage.getItem("mgHighScore");
-    if(newCount > parseInt(highScore)){
-        setMemoryGameHighScore(newCount);
+    if(count > parseInt(highScore)){
+        setMemoryGameHighScore(count);
     }
 }
 
-const makeMemoryGuess = id => {
-    if(!mgCpuTurn){
-        userSequence.push(id);
-        guessedCorrectly = userSequence[currentGuessIndex] === cpuSequence[currentGuessIndex];
-        if(!guessedCorrectly){
-            youLoseInMemoryGame();
-        } else {
-            currentGuessIndex++;
-        }
-        atFinalGuess = currentGuessIndex === cpuSequence.length;
-        if(atFinalGuess && guessedCorrectly){
+const increaseMemoryCount = () => {
+    const mgCount = getById("mgCount");
+    const newCount = parseInt(mgCount.innerText) + 1;
+    mgCount.innerText = newCount;
+    setHighScore(newCount);
+}
+
+const makeMemoryGuess = box => {
+    if(mgCpuTurn) return;
+    if(box !== cpuSequence[clickOrder]){
+        clickOrder = 0;
+        youLoseInMemoryGame();
+    } else {
+        clickOrder++;
+        if(cpuSequence.length === clickOrder){
+            clickOrder = 0;
             mgCpuTurn = true;
-            currentGuessIndex = 0;
-            userSequence.length = 0;
             increaseMemoryCount();
             cpuTurnInMemoryGame();
         }
