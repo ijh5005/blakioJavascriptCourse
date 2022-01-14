@@ -1,3 +1,5 @@
+const offscreen = "offscreen";
+
 const hasAttribute = (ele, attr) => {
     const hasAttr = ele.hasAttribute(attr);
     return hasAttr
@@ -29,4 +31,25 @@ const getById = id => {
 const getRandomIndexFromArray = array => {
     const index = Math.floor(Math.random() * array.length);
     return array[index];
+}
+
+const getRandomCharFromString = string => {
+    const index = Math.floor(Math.random() * string.length);
+    return string[index];
+}
+
+const setAttr = (ele, attr, value="") => {
+    ele.setAttribute(attr, value);
+}
+
+const removeAttr = (ele, attr) => {
+    ele.removeAttribute(attr);
+}
+
+const addClass = (ele, className) => {
+    ele.classList.add(className);
+}
+
+const removeClass = (ele, className) => {
+    ele.classList.remove(className);
 }

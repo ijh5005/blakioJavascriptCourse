@@ -15,8 +15,6 @@ const showMGDirections = () => {
     toggleAttribute(getById("mgDirections"), "nodisplay");
 }
 
-setMemoryGameHighScore(localStorage.getItem("mgHighScore"));
-
 const setMemoryGameHighScore = score => {
     const mgHighScore = localStorage.getItem("mgHighScore");
     if(!mgHighScore){
@@ -26,6 +24,8 @@ const setMemoryGameHighScore = score => {
     getById("mgHighScore").innerText = score;
     localStorage.setItem("mgHighScore", score);
 }
+
+setMemoryGameHighScore(localStorage.getItem("mgHighScore"));
 
 const addHighlight = id => {
     if(!mgCpuTurn){

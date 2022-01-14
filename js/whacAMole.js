@@ -1,10 +1,6 @@
 let random = null;
 
-let check = null;
-
-let maxSeconds = 20;
-
-let count = 0;
+let initialCount = 0;
 
 let goHome = false;
 
@@ -37,22 +33,21 @@ const flashRed = className => {
 
 const changeMolePosition = () => {
     const mole = document.querySelector(".whacAMole.mole");
-    if(mole){
-        mole.classList.remove("mole");
-    }
+    mole.classList.remove("mole");
     const randomIndex = Math.floor(Math.random() * whacPositions.length);
     const newMolePosition = whacPositions[randomIndex];
     document.querySelector(`.whacAMole.${newMolePosition}`).classList.add("mole");
 }
 
 const increamentWhacCount = () => {
-    count = getById("whacAMoleCount").innerText;
-    getById("whacAMoleCount").innerText = parseInt(count) + 1;
+    const currentCount = parseInt(getById("whacAMoleCount").innerText);
+    getById("whacAMoleCount").innerText = currentCount + 1;
 }
 
 const whacMole = className => {
-    const square = document.querySelector(`.whacAMole.${className}`);
-    const hitMole = square.classList.contains("mole");
+    const hitMole = document.querySelector(
+        `.whacAMole.${className}`
+    ).classList.contains("mole");
     if(hitMole){
         increamentWhacCount();
         flashRed(className);
@@ -60,18 +55,17 @@ const whacMole = className => {
 }
 
 const randomizeMole = () => {
+    changeMolePosition();
     random = setInterval(() => {
         changeMolePosition();
     }, 1000);
 }
 
 const whacAMoleMenuStart = () => {
-    const whakAMoleHome = getById("whakAMoleHome");
-    toggleAttribute(whakAMoleHome, "nodisplay");
+    toggleAttribute(getById("whakAMoleHome"), "nodisplay");
 
     const whacAMoleDirections = getById("whacAMoleDirections");
     toggleAttribute(whacAMoleDirections, "nodisplay");
-
     whacAMoleDirections.innerText = whakAMoleText.intro;
 }
 
@@ -81,13 +75,16 @@ const resetwhacAMoleGame = () => {
     toggleAttribute(whacAMoleDirections, "nodisplay");
     toggleAttribute(whacAMoleDirections, "opacity");
 
-    whacAMoleDirections.innerText = whakAMoleText.endText.replace("X", count);
+    whacAMoleDirections.innerText = whakAMoleText.endText.replace(
+        "X",
+        getById("whacAMoleCount").innerText
+    );
 
     clearInterval(random);
-    clearInterval(check);
-    count = 0;
     canClick = false;
     setTimeout(() => {
+        getById("whacAMoleCount").innerText = 0;
+
         toggleAttribute(whacAMoleDirections, "opacity");
         toggleAttribute(whacAMoleDirections, "nodisplay");
 
@@ -102,26 +99,29 @@ const resetwhacAMoleGame = () => {
 }
 
 const startTimer = () => {
-    getById("whacAMoleCountDown").innerText = maxSeconds;
-    check = setInterval(() => {
+    getById("whacAMoleCountDown").innerText = 20;
+    let check = setInterval(() => {
         const seconds = parseInt(getById("whacAMoleCountDown").innerText);
-        const newCount = seconds - 1;
-        if(!newCount){
+        const count = seconds - 1;
+        if(count === 0){
             resetwhacAMoleGame();
+            clearInterval(check);
         } else {
-            getById("whacAMoleCountDown").innerText = newCount;
+            getById("whacAMoleCountDown").innerText = count;
         }
     }, 1000);
 }
 
 const whacAMoleStart = () => {
     if(canClick){
-        const whacAMoleDirections = getById("whacAMoleDirections");toggleAttribute(whacAMoleDirections, "nodisplay");
+        const whacAMoleDirections = getById("whacAMoleDirections");
+        toggleAttribute(whacAMoleDirections, "nodisplay");
 
-        const whacAMoleBoard = getById("whacAMoleBoard");toggleAttribute(whacAMoleBoard, "nodisplay");
+        const whacAMoleBoard = getById("whacAMoleBoard");
+        toggleAttribute(whacAMoleBoard, "nodisplay");
 
         randomizeMole();
         startTimer();
-        getById("whacAMoleCount").innerText = count;
+        getById("whacAMoleCount").innerText = initialCount;
     }
 }
