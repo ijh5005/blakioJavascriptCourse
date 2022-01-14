@@ -1,63 +1,59 @@
 :root {
-    --textWhite: #FFF;
-    --offWhite: #e7e7e7;
-    --lightRed: #F34338;
-    --lightGrey: #919191;
-    --font: 'Roboto', sans-serif;
-    --me: url(./assets/me.png);
     --black: #000;
+    --font: 'Roboto', sans-serif;
+    --lightGrey: #919191;
+    --lightRed: #F34338;
+    --me: url(./assets/me.png);
+    --offWhite: #e7e7e7;
     --panelBorderBlue: #000418;
     --portfolioLeftBGColor: #ECECEE;
     --textColor: #1F1F21;
+    --textWhite: #FFF;
 }
 
 /* ------------------------------------------------------------------- */
 /* portfolio */
 
 #portfolioLeft {
-    height: 100vh;
-    width: 39vw;
     background-color: var(--portfolioLeftBGColor);
-    font-family: var(--font);
-    justify-content: space-between;
     color: var(--textColor);
+    font-family: var(--font);
+    height: 100vh;
+    justify-content: space-between;
+    width: 39vw;
 }
 
 #portfolioRight {
-    height: 100vh;
-    width: 61vw;
     color: var(--textColor);
     font-family: var(--font);
+    height: 100vh;
+    width: 61vw;
 }
 
 #rightSideText {
-    font-weight: 200;
-    padding: 100px;
     font-size: 68px;
-    opacity: 0.6;
+    font-weight: 200;
     letter-spacing: 10px;
-}
-
-#nameSection {
-    height: 100%;
+    margin: 100px;
+    opacity: 0.6;
 }
 
 #userPic {
-    height: 322px;
-    width: 246px;
+    background-blend-mode: luminosity;
     background-color: var(--black);
-    margin: 28px;
     background-image: var(--me);
-    background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-blend-mode: luminosity;
+    background-size: auto 100%;
+    height: 322px;
+    margin: 28px;
+    width: 246px;
 }
 
 #skillsSection {
-    width: 246px;
-    padding-top: 20px;
+    margin-top: 48px;
     margin: 28px;
+    width: 246px;
 }
 
 #imageSection {
@@ -66,43 +62,42 @@
 }
 
 #rotatedSection {
+    height: 119px;
+    left: 119px;
     position: absolute;
     top: 0px;
-    left: 119px;
-    background: none;
     transform-origin: 0 0;
     transform: rotate(90deg);
-    height: 119px;
     width: 100vh;
 }
 
 #rotatedText {
-    transform: rotate(180deg);
-    display: flex;
-    flex-direction: column;
     align-items: end;
-    font-size: 34px;
-    padding: 14px 30px;
     border-top: 1px solid #cdcdcd;
     color: var(--textColor);
+    display: flex;
+    flex-direction: column;
+    font-size: 34px;
     font-weight: 600;
+    padding: 14px 30px;
+    transform: rotate(180deg);
 }
 
 #pens {
+    background-image: url(./assets/pens.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     height: 500px;
     width: 500px;
-    background-image: url(./assets/pens.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 /* ------------------------------------------------------------------- */
 
 body {
-    height: 100vh;
     color: var(--textWhite);
     display: flex;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -112,14 +107,14 @@ body {
 }
 
 #dashboard {
-    overflow-y: scroll;
     backdrop-filter: blur(5px);
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    overflow-y: scroll;
     position: absolute;
     right: 0;
-    width: 23.5em;
-    height: 100vh;
-    font-family: 'Montserrat', sans-serif;
     transition: 1s;
+    width: 23.5em;
 }
 
 [offscreen] {
@@ -127,30 +122,30 @@ body {
 }
 
 .panelSm {
+    border-radius: 2px;
     float: left;
     height: 11rem;
-    width: 11.25rem;
     margin: 4px;
-    border-radius: 2px;
     overflow: hidden;
+    width: 11.25rem;
 }
 
 .panelMd {
+    border-radius: 2px;
     float: left;
     height: 11rem;
-    width: 23rem;
     margin: 4px;
-    border-radius: 2px;
     overflow: hidden;
+    width: 23rem;
 }
 
 .panelLarge {
+    border-radius: 2px;
     float: left;
     height: 23rem;
-    width: 23rem;
     margin: 4px;
-    border-radius: 2px;
     overflow: hidden;
+    width: 23rem;
 }
 
 [nodisplay]{
@@ -162,10 +157,10 @@ body {
 }
 
 #projectBtn {
-    margin-right: 28px;
-    width: 222px;
     color: #fff;
     font-weight: 200;
+    margin-right: 28px;
+    width: 222px;
 }
 
 .grey {
@@ -179,14 +174,14 @@ body {
 }
 
 .directionsSm {
-    position: absolute;
-    top: 0px;
-    left: 0px;
     background-color: var(--black);
-    padding: 12px;
     height: 154px;
-    width: 154px;
+    left: 0px;
+    padding: 12px;
+    position: absolute;
     text-align: center;
+    top: 0px;
+    width: 154px;
 }
 
 .directionsSm[opacity] {
@@ -194,16 +189,16 @@ body {
 }
 
 .flex {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .flexCol {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .alignStart {
@@ -247,18 +242,18 @@ body {
 }
 
 .half70 {
-    width: 70%;
     height: 100%;
+    width: 70%;
 }
 
 .half30 {
-    width: 30%;
     height: 100%;
+    width: 30%;
 }
 
 .quarterWidth {
-    width: 25%;
     height: 100%;
+    width: 25%;
 }
 
 .fontSmSize {
@@ -301,18 +296,16 @@ body {
 
 .btn {
     background-color: var(--black);
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
     border-radius: 0.25rem;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
     margin: 5px 0;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
 }
 
 .btn:hover {
@@ -324,10 +317,10 @@ body {
 }
 
 .panelHeader {
+    color: var(--lightRed);
+    font-weight: 800;
     margin-left: 16px;
     margin-top: 16px;
-    font-weight: 800;
-    color: var(--lightRed);
 }
 
 .upperCase {
@@ -335,31 +328,29 @@ body {
 }
 
 .line {
-    height: 1px;
-    width: 90%;
     background-color: var(--lightGrey);
+    height: 1px;
     opacity: 0.2;
+    width: 90%;
 }
 
 input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin: 8px 0;
+    padding: 12px 20px;
+    width: 100%;
 }
   
 input[type=submit] {
-    width: 100%;
     background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
     border-radius: 4px;
+    border: none;
+    color: white;
     cursor: pointer;
+    margin: 8px 0;
+    padding: 14px 20px;
+    width: 100%;
 }
   
 input[type=submit]:hover {
@@ -372,9 +363,9 @@ input[type=submit]:hover {
 
 input[type=text].smallInput,
 input[type=number].smallInput {
-    width: 78px;
     height: 26px;
     padding: 6px;
+    width: 78px;
 }
 
 /* ------------------------------------------------------------------- */
@@ -389,14 +380,14 @@ input[type=number].smallInput {
 }
 
 #videoOverLay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     font-size: 28px;
     font-weight: 100;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 /* ------------------------------------------------------------------- */
@@ -408,12 +399,12 @@ input[type=number].smallInput {
 }
 
 #passwordImg {
-    width: 330px;
+    background-image: url(./assets/password.png);
+    background-size: contain;
     height: 83px;
     margin: 8px;
     opacity: 0.7;
-    background-size: contain;
-    background-image: url(./assets/password.png);
+    width: 330px;
 }
 
 #passwordBtn,
@@ -422,8 +413,8 @@ input[type=number].smallInput {
 }
 
 .pwOptions {
-    margin: 3px;
     font-size: 14px;
+    margin: 3px;
 }
 
 /* ------------------------------------------------------------------- */
@@ -434,8 +425,8 @@ input[type=number].smallInput {
 
 #dailyInspirationalQuote {
     color: var(--lightGrey);
-    overflow-y: scroll;
     height: 100%;
+    overflow-y: scroll;
 }
 
 #dailyMemoTop {
@@ -451,21 +442,21 @@ input[type=number].smallInput {
 
 #mgGameHome {
     background-image: url(./assets/memory.png);
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #memoryTitle {
     background-color: rgba(0, 0, 0, 0.6);
     color: var(--offWhite);
     font-size: 18px;
-    text-transform: uppercase;
     font-weight: 900;
+    text-transform: uppercase;
 }
 
 #mgTopLeft {
-    border-right: 1px solid var(--panelBorderBlue);
     border-bottom: 1px solid var(--panelBorderBlue);
+    border-right: 1px solid var(--panelBorderBlue);
 }
 
 #mgBottomRight {
@@ -482,8 +473,8 @@ input[type=number].smallInput {
 }
 
 #mgCount {
-    position: absolute;
     font-size: 2em;
+    position: absolute;
 }
 
 .memoryHighlight {
@@ -507,8 +498,8 @@ input[type=number].smallInput {
 
 #TikTacToeHome {
     background-image: url(./assets/tictactoe.png);
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #topRow,
@@ -526,11 +517,11 @@ input[type=number].smallInput {
 #tikTacToeBoard > #topRow > div,
 #tikTacToeBoard > #middleRow > div,
 #tikTacToeBoard > #bottomRow > div {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
     height: 100%;
     width: 33%;
-    background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
 }
 
 .topOne,
@@ -556,11 +547,11 @@ input[type=number].smallInput {
 #whacAMoleBoard > #topRow > div,
 #whacAMoleBoard > #middleRow > div,
 #whacAMoleBoard > #bottomRow > div {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
     height: 100%;
     width: 33%;
-    background-position: center;
-    background-size: 90%;
-    background-repeat: no-repeat;
 }
 
 #whacAMoleBoard {
@@ -571,16 +562,16 @@ input[type=number].smallInput {
 #whakAMoleHome{
     background-image: url(./assets/whackamolehome.png);
     background-position: center;
-    background-size: 90%;
     background-repeat: no-repeat;
+    background-size: 90%;
 }
 
 #whakamoleTitle p {
     background-color: rgba(0, 0, 0, 0.6);
     color: var(--offWhite);
     font-size: 18px;
-    text-transform: uppercase;
     font-weight: 900;
+    text-transform: uppercase;
 }
 
 .whacAMole.dirt {
@@ -597,15 +588,15 @@ input[type=number].smallInput {
 
 #whacAMoleCount,
 #whacAMoleCountDown {
-    position: absolute;
     font-size: 2em;
     pointer-events: none;
+    position: absolute;
 }
 
 #whacAMoleCountDown {
-    top: 0;
-    left: 0;
     font-size: 1em;
+    left: 0;
+    top: 0;
 }
 
 /* ------------------------------------------------------------------- */
@@ -616,12 +607,12 @@ input[type=number].smallInput {
 }
 
 #statsImg {
-    width: 112px;
-    height: 100px;
-    background-position: center center;
-    background-size: 90%;
-    background-repeat: no-repeat;
     background-image: url(./assets/stats.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    height: 100px;
+    width: 112px;
 }
 
 /* ------------------------------------------------------------------- */
@@ -629,8 +620,8 @@ input[type=number].smallInput {
 
 #clock {
     color: #6ac1ff;
-    font-size: 41px;
     font-family: 'Anonymous Pro', monospace;
+    font-size: 41px;
 }
 
 /* ------------------------------------------------------------------- */
@@ -638,10 +629,10 @@ input[type=number].smallInput {
 
 #meditationApp {
     background-image: url(./assets/meditation.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: relative;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
 }
 
 #meditationApp:active {
@@ -649,22 +640,22 @@ input[type=number].smallInput {
 }
 
 #meditationStart {
-    font-weight: 900;
     background-color: rgba(0, 0, 0, 0.8);
+    font-weight: 900;
     padding: 3px;
     z-index: 1;
 }
 
 #breatheIn,
 #breatheOut {
+    background-color: rgba(0, 0, 0, 0.4);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
     position: absolute;
     top: 60px;
-    z-index: 0;
-    height: 100px;
     width: 100px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
 }
 
 #breatheIn {
@@ -679,15 +670,15 @@ input[type=number].smallInput {
 /* tip calculator */
 
 #tipCalculator > div > div > .tipInput {
-    width: 90px;
     margin: 3px;
     padding: 6px;
+    width: 90px;
 }
 
 #splitAmountSection {
     font-size: 20px;
-    margin-top: 18px;
     font-weight: 300;
+    margin-top: 18px;
 }
 
 /* ------------------------------------------------------------------- */
@@ -695,9 +686,9 @@ input[type=number].smallInput {
 
 #pricedItems {
     background-image: url(./assets/shelf.png);
+    background-position: 0px -39px;
     background-repeat: no-repeat;
     background-size: 100% 87%;
-    background-position: 0px -39px;
 }
 
 .priceText {
@@ -719,9 +710,9 @@ input[type=number].smallInput {
 #apple,
 #selectedProduct,
 .shelfedProduct {
-    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
     height: 50%;
     width: 50%;
 }
@@ -756,8 +747,8 @@ input[type=number].smallInput {
 }
 
 #productHelpText {
-    text-align: center;
     padding: 14px;
+    text-align: center;
 }
 
 /* ------------------------------------------------------------------- */
@@ -769,29 +760,29 @@ input[type=number].smallInput {
 
 #breakingBadImg {
     background-image: url(./assets/breakingBad.jpg);
-    background-size: cover;
     background-position: 55px -56px;
+    background-size: cover;
 }
 
 #quote {
+    background-image: url(./assets/quote.png);
+    background-position: center center;
+    background-size: cover;
+    height: 166px;
+    left: 11px;
+    overflow-y: scroll;
     position: absolute;
     top: 3px;
-    left: 11px;
-    height: 166px;
     width: 213px;
-    background-image: url(./assets/quote.png);
-    background-size: cover;
-    background-position: center center;
-    overflow-y: scroll;
 }
 
 #quoteTextContainer {
+    font-size: 12px;
     height: 57%;
-    width: 84%;
+    left: 16px;
     position: relative;
     top: 24px;
-    left: 16px;
-    font-size: 12px;
+    width: 84%;
 }
 
 #quoteTextContainer:active {
@@ -800,25 +791,25 @@ input[type=number].smallInput {
 
 #breakingBadAuthor {
     color: #002d00;
-    font-weight: 900;
     font-size: 16px;
+    font-weight: 900;
 }
 
 #breakBadClick {
     font-weight: 900;
-    top: 109px;
     left: 33px;
+    top: 109px;
 }
 
 /* ------------------------------------------------------------------- */
 /* Color Psychology */
 
 #colorPsychology {
-    padding: 2px;
-    flex-wrap: wrap;
-    overflow: scroll;
     background-image: url(./assets/colorsbg.png);
     background-size: cover;
+    flex-wrap: wrap;
+    overflow: scroll;
+    padding: 2px;
 }
 
 #colorPsychology .btn {
@@ -876,30 +867,30 @@ input[type=number].smallInput {
 #pokedexApp {
     background-image: url(./assets/pokedex.png);
     background-size: cover;
-    position: relative;
     font-family: 'Inconsolata', monospace;
+    position: relative;
 }
 
 #pokemonSearch {
-    width: 200px;
+    left: 107px;
     position: relative;
     top: 19px;
-    left: 107px;
+    width: 160px;
 }
 
 #pokemonInfo {
-    position: absolute;
     bottom: 50px;
-    left: 0;
     height: 63%;
-    width: 100%;
     justify-content: space-between;
+    left: 0;
+    position: absolute;
+    width: 100%;
 }
 
 #pokemonStats {
+    background-color: rgba(0, 0, 0, 0.4);
     height: 71px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .statRow {
@@ -907,13 +898,13 @@ input[type=number].smallInput {
 }
 
 #pokemon {
+    background-image: url(./assets/egg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 154px;
     position: relative;
     top: 30px;
-    height: 154px;
     width: 154px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url(./assets/egg.png);
 }
 
 /* ------------------------------------------------------------------- */
@@ -921,13 +912,13 @@ input[type=number].smallInput {
 
 #jokeApp {
     background-image: url(./assets/laugh.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
     background-position: center;
-    justify-content: flex-start;
-    padding-top: 12px;
-    padding-left: 12px;
+    background-repeat: no-repeat;
+    background-size: 100%;
     height: 100%;
+    justify-content: flex-start;
+    padding-left: 12px;
+    padding-top: 12px;
     width: 360px;
 }
 
