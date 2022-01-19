@@ -337,14 +337,18 @@
             <div class="fullSize">
                 <div id="storeHeader" class="flex">
                     <p class="panelHeader">Crud Store</p>
-                    <input placeholder="crud id">
+                    <input 
+                        id="crudKey"
+                        type="text"
+                        placeholder="crud id"
+                        value=""
+                    >
                 </div>
                 <div class="flexCol sizeWithHeader">
                     <div class="topBottomHalf flex">
                         <div class="rightLeftHalf flexCol">
                             <p id="productHelpText"></p>
-                            <div id="createItemBtn" class="btn flex" onclick="createStoreItem()">CREATE ITEM</div>
-                            <div id="addItemBtn" class="btn flex displayNone">ADD</div>
+                            <div id="loadStore" class="btn flex" onclick="loadStore()">Load Store</div>
                         </div>
                         <div class="rightLeftHalf flex">
                             <div id="itemSelection" class="fullSize flex displayNone">
@@ -361,7 +365,7 @@
                                 <div id="selectedProduct" class="itemSelect"></div>
                                 <div>
                                     <input id="selectedPrice" type="number" placeholder="$0.00" class="smallInput">
-                                    <div class="btn" onclick="addItem()">Add</div>
+                                    <div class="btn" onclick="onAdd()">Add</div>
                                 </div>
                             </div>
                         </div>
@@ -444,8 +448,8 @@
         <script src="./js/whacAMole.js"></script>
 
         <!-- APIs -->
-        <script src="./js/breakingBad.js"></script>
         <script src="./js/quotes.js"></script>
+        <script src="./js/breakingBad.js"></script>
         <script src="./js/inspirationalQuote.js"></script>
         <script src="./js/jokes.js"></script>
         <script src="./js/pokemon.js"></script>

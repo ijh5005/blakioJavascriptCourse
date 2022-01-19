@@ -684,6 +684,11 @@ input[type=number].smallInput {
 /* ------------------------------------------------------------------- */
 /* crud store */
 
+#crudKey {
+    width: 12em;
+    margin: 12px 14px 0 0;
+}
+
 #pricedItems {
     background-image: url(./assets/shelf.png);
     background-position: 0px -39px;
@@ -697,11 +702,6 @@ input[type=number].smallInput {
 
 #storeHeader {
     justify-content: space-between;
-}
-
-#storeHeader input {
-    margin: 12px 14px 0 0;
-    width: 200px;
 }
 
 #chips,
@@ -933,3 +933,9 @@ input[type=number].smallInput {
 #jokeClick {
     font-weight: 900;
 }
+
+/* comment in for dark mode */
+/* :root,
+#portfolioLeft {
+    background-color: black;
+} */
