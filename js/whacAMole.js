@@ -108,8 +108,9 @@ const startTimer = () => {
         const seconds = parseInt(getById("whacAMoleCountDown").innerText);
         const count = seconds - 1;
         if(count === 0){
-            resetwhacAMoleGame();
             clearInterval(check);
+            resetwhacAMoleGame();
+            setWhakAMoleHighScoreIfHigher();
         } else {
             getById("whacAMoleCountDown").innerText = count;
         }
@@ -130,16 +131,23 @@ const whacAMoleStart = () => {
     }
 }
 
-const setTicTacToeScore = score => {
-    const whakAMoleScore = localStorage.getItem(wamKey);
+const setWhakAMoleHighScoreIfHigher = () => {
+    const score = parseInt(getById("whacAMoleCount").innerText);
+    if(score > whakAMoleScore){
+        setWhakAMoleHighScore(score);
+    }
+}
+
+const setWhakAMoleHighScore = score => {
+    whakAMoleScore = localStorage.getItem(wamKey);
     if(!whakAMoleScore){
         localStorage.setItem(wamKey, 0);
     }
     if(score){
-        localStorage.setItem(wamKey, scrore);
+        localStorage.setItem(wamKey, score);
     }
-    whakAMoleScore = localStorage.getItem(wamKey);
+    whakAMoleScore = parseInt(localStorage.getItem(wamKey));
     getById("whakamoleScore").innerText = whakAMoleScore;
 }
 
-setTicTacToeScore();
+setWhakAMoleHighScore();
