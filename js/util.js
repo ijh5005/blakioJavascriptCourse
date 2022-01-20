@@ -25,3 +25,19 @@ const getRandomIndexFromArray = array => {
     const index = Math.floor(Math.random() * array.length);
     return array[index];
 }
+
+const setAttr = (ele, attr, value="") => {
+    ele.setAttribute(attr, value);
+}
+
+const removeAttr = (ele, attr) => {
+    ele.removeAttribute(attr);
+}
+
+const addClass = (ele, className) => {
+    ele.classList.add(className);
+}
+
+const removeClass = (ele, className) => {
+    ele.classList.remove(className);
+}
