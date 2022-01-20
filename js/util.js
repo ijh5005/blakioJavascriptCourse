@@ -1,13 +1,25 @@
 const offscreen = "offscreen";
 
-const toggleAttribute = (ele, attr, value="") => {
-    const hasAttribute = ele.hasAttribute(offscreen);
-    if(hasAttribute){
-        // remove the offset attribute
-        ele.removeAttribute(attr);
+const hasAttribute = (ele, attr) => {
+    const hasAttr = ele.hasAttribute(attr);
+    return hasAttr
+}
+
+const removeAttribute = (ele, attr) => {
+    ele.removeAttribute(attr);
+}
+
+const addAttribute = (ele, attr, value) => {
+    const v = value || "";
+    ele.setAttribute(attr, v);
+}
+
+const toggleAttribute = (ele, attr, value) => {
+    const hasAttr = hasAttribute(ele, attr);
+    if(hasAttr){
+        removeAttribute(ele, attr);
     } else {
-        // add the offset attribute
-        ele.setAttribute(attr, value);
+        addAttribute(ele, attr, value);
     }
 }
 
@@ -16,14 +28,14 @@ const getById = id => {
     return ele;
 }
 
-const getRandomCharFromString = string => {
-    const index = Math.floor(Math.random() * string.length);
-    return string[index];
-}
-
 const getRandomIndexFromArray = array => {
     const index = Math.floor(Math.random() * array.length);
     return array[index];
+}
+
+const getRandomCharFromString = string => {
+    const index = Math.floor(Math.random() * string.length);
+    return string[index];
 }
 
 const setAttr = (ele, attr, value="") => {
