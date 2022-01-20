@@ -6,6 +6,10 @@ let goHome = false;
 
 let canClick = true;
 
+const wamKey = "whakAMoleScore";
+
+let whakAMoleScore;
+
 const whakAMoleText = {
     intro: "Whak the mole to score! Click to play.",
     endText: "You have scored X"
@@ -125,3 +129,17 @@ const whacAMoleStart = () => {
         getById("whacAMoleCount").innerText = initialCount;
     }
 }
+
+const setTicTacToeScore = score => {
+    const whakAMoleScore = localStorage.getItem(wamKey);
+    if(!whakAMoleScore){
+        localStorage.setItem(wamKey, 0);
+    }
+    if(score){
+        localStorage.setItem(wamKey, scrore);
+    }
+    whakAMoleScore = localStorage.getItem(wamKey);
+    getById("whakamoleScore").innerText = whakAMoleScore;
+}
+
+setTicTacToeScore();
