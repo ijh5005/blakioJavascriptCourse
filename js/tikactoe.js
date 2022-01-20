@@ -1,5 +1,9 @@
 let isCpuTurn = false;
 
+let tttScore;
+
+const tttKey = "ticTacToeScore";
+
 const hasX = id => {
     return getById(id).classList.contains("x");
 }
@@ -156,6 +160,12 @@ const makeCpuSelection = square => {
 
 const playerScore = ply => {
     isCpuTurn = false;
+    if(ply === "ply"){
+        tttScore.wins = tttScore.wins + 1;
+    } else {
+        tttScore.losses = tttScore.losses + 1;
+    }
+    setTicTacToeScore(tttScore);
     setTimeout(() => {
         resetGame();
     }, 2000);
@@ -205,3 +215,17 @@ const startGame = () => {
     const tikTacToeBoard = getById("tikTacToeBoard");
     toggleAttribute(tikTacToeBoard, "nodisplay");
 }
+
+const setTicTacToeScore = score => {
+    const ticTacToeScore = localStorage.getItem(tttKey);
+    if(!ticTacToeScore){
+        localStorage.setItem(tttKey, JSON.stringify({wins: 0, losses: 0}));
+    }
+    if(score){
+        localStorage.setItem(tttKey, JSON.stringify(score));
+    }
+    tttScore = JSON.parse(localStorage.getItem(tttKey));
+    getById("tictactoeScore").innerText = `${tttScore.wins}/${tttScore.losses}`;
+}
+
+setTicTacToeScore();
