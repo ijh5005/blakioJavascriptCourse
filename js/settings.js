@@ -11,4 +11,5 @@ const resetScores = () => {
     if(tttReset){
         localStorage.removeItem(tttKey);
     }
+    window.location.reload();
 }
