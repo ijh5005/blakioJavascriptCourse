@@ -152,12 +152,6 @@ const getDeleteBtn = product => {
 const populateShelf = products => {
     getById("pricedItems").innerHTML = "";
     products.forEach(data => {
-
-        // TODO
-        // start hooking up the update and delete btns next
-        // then work on only displaying the products that dont come back from the api
-        // in the add items section
-
         const div = getParentElement();
         const productDiv = getProductElement(data);
         const update = getUpdateBtn(data);
