@@ -6,6 +6,10 @@ let goHome = false;
 
 let canClick = true;
 
+const wamKey = "whakAMoleScore";
+
+let whakAMoleScore;
+
 const whakAMoleText = {
     intro: "Whak the mole to score! Click to play.",
     endText: "You have scored X"
@@ -104,8 +108,9 @@ const startTimer = () => {
         const seconds = parseInt(getById("whacAMoleCountDown").innerText);
         const count = seconds - 1;
         if(count === 0){
-            resetwhacAMoleGame();
             clearInterval(check);
+            resetwhacAMoleGame();
+            setWhakAMoleHighScoreIfHigher();
         } else {
             getById("whacAMoleCountDown").innerText = count;
         }
@@ -125,3 +130,24 @@ const whacAMoleStart = () => {
         getById("whacAMoleCount").innerText = initialCount;
     }
 }
+
+const setWhakAMoleHighScoreIfHigher = () => {
+    const score = parseInt(getById("whacAMoleCount").innerText);
+    if(score > whakAMoleScore){
+        setWhakAMoleHighScore(score);
+    }
+}
+
+const setWhakAMoleHighScore = score => {
+    whakAMoleScore = localStorage.getItem(wamKey);
+    if(!whakAMoleScore){
+        localStorage.setItem(wamKey, 0);
+    }
+    if(score){
+        localStorage.setItem(wamKey, score);
+    }
+    whakAMoleScore = parseInt(localStorage.getItem(wamKey));
+    getById("whakamoleScore").innerText = whakAMoleScore;
+}
+
+setWhakAMoleHighScore();
